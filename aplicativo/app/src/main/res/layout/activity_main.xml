@@ -99,14 +99,14 @@
             />
 
         <Button
-            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Entrar"
-            android:textColorHint="@color/pl_white"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_border"
             android:backgroundTint="@color/pl_dark_red"
-            />
+            android:hint="Entrar"
+            android:textColorHint="@color/pl_white"
+            app:iconTint="#4CAF50" />
 
         <TextView
             android:id="@+id/tv_sem_conta"
