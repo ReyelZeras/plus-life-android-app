@@ -5,6 +5,7 @@
 
     <solid
         android:color="@color/pl_dark_red"
+        android:backgroundTint="@color/pl_dark_red"
         />
 
     <corners

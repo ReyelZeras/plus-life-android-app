@@ -15,7 +15,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,6 +73,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_border"
@@ -90,6 +92,7 @@
             />
 
         <EditText
+            android:id="@+id/et_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_border"
@@ -99,6 +102,7 @@
             />
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -108,19 +112,31 @@
             android:textColorHint="@color/pl_white"
             app:iconTint="#4CAF50" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            >
+
         <TextView
             android:id="@+id/tv_sem_conta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Não tem uma conta?"
-            android:layout_gravity="center"/>
+            android:text="Não tem uma conta? "
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            />
 
         <TextView
+            android:id="@+id/tv_cadastrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastre-se"
+            android:text=" Cadastre-se"
             android:textColor="@color/pl_dark_red"
-
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            />
+    </LinearLayout>
 
 
 

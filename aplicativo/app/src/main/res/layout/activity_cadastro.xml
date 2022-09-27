@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="CadastroActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/arrow_back_ios_24px"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pl_light_gray"
+            android:textSize="20dp"
+            android:text="Voltar"
+            android:textAlignment="center"
+            android:layout_marginLeft="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Junte-se a nós"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Nome *"
+            android:textColor="@color/pl_dark_gray"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/et_nome"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Adicione seu nome"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Email *"
+            android:textColor="@color/pl_dark_gray"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Adicione seu e-mail"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Senha *"
+            android:textColor="@color/pl_dark_gray"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:id="@+id/et_senha"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Adicione sua senha"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo sanguíneo *"
+            android:textColor="@color/pl_dark_gray"
+            android:layout_weight="2"
+            android:layout_marginRight="10dp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nascimento *"
+            android:textColor="@color/pl_dark_gray"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        >
+
+        <EditText
+            android:id="@+id/tipo_sanguineo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Selecione seu tipo"
+            android:layout_weight="2"
+            android:background="@drawable/edit_text_border"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+
+            />
+
+        <EditText
+            android:id="@+id/et_nascimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DD/MM/AAAA"
+            android:inputType="number"
+            android:layout_weight="2"
+            android:background="@drawable/edit_text_border"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado *"
+            android:textColor="@color/pl_dark_gray"
+            android:layout_weight="2"
+            android:layout_marginRight="10dp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cidade *"
+            android:textColor="@color/pl_dark_gray"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+
+
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        >
+
+        <EditText
+            android:id="@+id/et_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Selecione seu estado"
+            android:layout_weight="2"
+            android:background="@drawable/edit_text_border"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <EditText
+            android:id="@+id/et_cidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adicione sua cidade"
+            android:inputType="number"
+            android:layout_weight="2"
+            android:background="@drawable/edit_text_border"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Bairro *"
+            android:textColor="@color/pl_dark_gray"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:id="@+id/et_bairro"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Adicione seu bairro"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rua *"
+            android:textColor="@color/pl_dark_gray"
+            android:layout_weight="2"
+            android:layout_marginRight="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Número *"
+            android:textColor="@color/pl_dark_gray"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+
+
+            />
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        >
+
+        <EditText
+            android:id="@+id/et_rua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adicione sua rua"
+            android:layout_weight="2"
+            android:background="@drawable/edit_text_border"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+
+            />
+
+        <EditText
+            android:id="@+id/et_numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adicione seu número"
+            android:inputType="number"
+            android:layout_weight="2"
+            android:background="@drawable/edit_text_border"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_border"
+        android:backgroundTint="@color/pl_dark_red"
+        android:hint="Registrar conta"
+        android:textColorHint="@color/pl_white"
+        app:iconTint="#4CAF50" />
+
+</LinearLayout>
