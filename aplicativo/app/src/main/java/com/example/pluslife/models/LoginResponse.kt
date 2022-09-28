@@ -6,6 +6,6 @@ data class LoginResponse(
     val email: String,
     val senha: String,
     val dataCriacao: String,
-    val autenticado: Boolean,
+    val autenticado: Int,
     val tipoUsuario: TipoUsuario,
 )
