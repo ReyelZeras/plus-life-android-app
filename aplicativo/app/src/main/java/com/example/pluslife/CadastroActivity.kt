@@ -1,6 +1,8 @@
 package com.example.pluslife
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pluslife.databinding.ActivityCadastroBinding
 import com.example.pluslife.databinding.ActivityMainBinding
@@ -25,13 +27,33 @@ class CadastroActivity : AppCompatActivity() {
 
         binding.btnCadastrar.setOnClickListener{
             tryCadastro()}
+
+        val spinnerEstado : Spinner = binding.etEstado
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.estados,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerEstado.adapter = adapter
+        }
+
+        val spinner: Spinner = binding.tipoSanguineo
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.tipos_sanguineos,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
     }
 
     private fun tryCadastro(){
         val nome = binding.etNome.text.toString()
         val email = binding.etEmail.text.toString()
         val senha = binding.etSenha.text.toString()
-        val tipoSanguineo = binding.tipoSanguineo.text.toString()
+        val tipoSanguineo = binding.tipoSanguineo.adapter.toString()
         val nascimento = binding.etNascimento.text.toString()
 
         val body = CadastroDoadorRequest( nome, email, senha, nascimento, tipoSanguineo)
@@ -44,7 +66,7 @@ class CadastroActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                TODO("Not yet implemented")
+                binding.mensagem.setText(t.message)
             }
         })
     }
@@ -52,7 +74,7 @@ class CadastroActivity : AppCompatActivity() {
     private fun tryCadastroEndereco(request: Usuario) {
         val email = binding.etEmail.text.toString()
         val cidade = binding.etCidade.text.toString()
-        val estado = binding.etEstado.text.toString()
+        val estado = binding.etEstado.adapter.toString()
         val rua = binding.etRua.text.toString()
         val numero = binding.etNumero.text.toString().toInt()
         val bairro = binding.etBairro.text.toString()
@@ -61,11 +83,11 @@ class CadastroActivity : AppCompatActivity() {
 
         request.cadastroEndereco(body).enqueue(object : Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {
-                TODO("Not yet implemented")
+                binding.mensagem.setText(response.toString())
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                TODO("Not yet implemented")
+                binding.mensagem.setText("Erro:" + t.message)
             }
         })
     }

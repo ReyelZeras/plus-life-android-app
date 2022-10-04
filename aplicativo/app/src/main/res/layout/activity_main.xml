@@ -15,89 +15,82 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:src="@drawable/arrow_back_ios_24px"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                tools:src="@drawable/arrow_back_ios_24px" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/pl_light_gray"
-                android:textSize="20dp"
+                android:layout_marginLeft="5dp"
                 android:text="Voltar"
                 android:textAlignment="center"
-                android:layout_marginLeft="5dp"
-                />
+                android:textColor="@color/pl_light_gray"
+                android:textSize="20dp" />
         </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                tools:src="@drawable/logo"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Entrar no +Life"
-                android:layout_gravity="center"
-                android:textColor="@color/pl_dark_gray"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"
-                />
-
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seja bem-vindo(a)"
             android:layout_gravity="center"
-            android:textColor="@color/pl_light_gray"
-            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            tools:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Entrar no +Life"
+            android:textColor="@color/pl_dark_gray"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            />
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="E-mail"
-                android:textColor="@color/pl_dark_gray"
-                android:layout_marginTop="15dp"
-                />
-
-            <EditText
-                android:id="@+id/et_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_border"
-                android:padding="5dp"
-                android:hint="Digite seu email"
-
-                />
+            android:text="Seja bem-vindo(a)"
+            android:textColor="@color/pl_light_gray"
+            android:textSize="15dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Senha"
-            android:textColor="@color/pl_dark_gray"
             android:layout_marginTop="15dp"
+            android:text="E-mail"
+            android:textColor="@color/pl_dark_gray" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:hint="Digite seu email"
+            android:padding="5dp"
+
             />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Senha"
+            android:textColor="@color/pl_dark_gray" />
 
         <EditText
             android:id="@+id/et_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_border"
-            android:padding="5dp"
             android:hint="Digite seha senha"
+            android:padding="5dp"
 
             />
 
@@ -115,34 +108,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/tv_sem_conta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Não tem uma conta? "
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
+            <TextView
+                android:id="@+id/tv_sem_conta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Não tem uma conta? "
+                android:textAlignment="textEnd" />
 
-        <TextView
-            android:id="@+id/tv_cadastrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Cadastre-se"
-            android:textColor="@color/pl_dark_red"
-            android:layout_weight="1"
-            android:textAlignment="textStart"
-            />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_cadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" Cadastre-se"
+                android:textAlignment="textStart"
+                android:textColor="@color/pl_dark_red" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/teste"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
-
 
 
     </LinearLayout>
