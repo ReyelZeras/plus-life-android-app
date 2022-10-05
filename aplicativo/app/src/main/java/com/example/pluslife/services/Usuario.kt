@@ -16,8 +16,8 @@ interface Usuario {
     fun login(@Query("email") email: String, @Query("senha") senha: String,): Call<LoginResponse>
 
     @POST("/usuario/doador")
-    fun cadastroDoador(@Body body: CadastroDoadorRequest): Call<String>
+    fun cadastroDoador(@Body body: CadastroDoadorRequest): Call<Void>
 
     @POST("/usuario/endereco")
-    fun cadastroEndereco(@Body body: CadastroEnderecoRequest): Call<String>
+    fun cadastroEndereco(@Body body: CadastroEnderecoRequest): Call<Void>
 }
