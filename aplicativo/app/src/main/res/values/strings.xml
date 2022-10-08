@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">Plus Life</string>
+
+    <!-- Home -->
+    <string name="home_text">Veja os pontos de doação de sangue mais próximo ao seu endereço e faça parte dessa grande rede de apoio!</string>
+    <string name="home_main_button">Pesquise lugares</string>
+    <string name="home_item_1"><u><b>Veja o feed da comunidade!</b></u></string>
+    <string name="home_item_2"><u><b>O que precisa para doar?</b></u></string>
+    <string name="home_item_3"><u><b>Para quem doar?</b></u></string>
+
+    <!-- Arrays -->
     <string-array name="tipos_sanguineos">
-        <item >Selecione seu tipo</item>
+        <item>Selecione seu tipo</item>
         <item>A+</item>
         <item>AB+</item>
         <item>B+</item>
@@ -40,7 +49,10 @@
         <item>SP</item>
         <item>SE</item>
         <item>TO</item>
-
-
     </string-array>
+
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_pontos">Pontos</string>
+    <string name="nav_title_perfil">Perfil</string>
 </resources>

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         request.login(email, senha).enqueue(object: Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 binding.teste.setText(response.body().toString())
+                if (response.code() == 200) { telaHome() }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -48,5 +49,13 @@ class MainActivity : AppCompatActivity() {
             CadastroActivity::class.java
         )
         startActivity(telaCadastro)
+    }
+
+    fun telaHome(){
+        val telaHome = Intent(
+            this,
+            HomeActivity::class.java
+        )
+        startActivity(telaHome)
     }
 }
