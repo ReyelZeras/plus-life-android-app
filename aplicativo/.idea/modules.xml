@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.androidTest~1.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.androidTest~1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.main~1.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.main~1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.unitTest~1.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus Life.Plus_Life.app.unitTest~1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aplicativo.Plus_Life.iml" filepath="$PROJECT_DIR$/.idea/modules/aplicativo.Plus_Life.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Plus_Life.iml" filepath="$PROJECT_DIR$/.idea/modules/Plus_Life.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Plus_Life.app.unitTest.iml" />
     </modules>
   </component>
 </project>
