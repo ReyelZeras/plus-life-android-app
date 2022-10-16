@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:layout_weight="1"
-                android:text="Atualizar Nome"
+                android:text="Atualizar nome"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
         </LinearLayout>
