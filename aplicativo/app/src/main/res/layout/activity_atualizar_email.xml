@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:layout_weight="1"
-                android:text="Atualizar nome"
+                android:text="Atualizar e-mail"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="Nome atual"
+                android:text="E-mail atual"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Reyel Zapateiro Magalhães">
+                android:text="exemplo@exemplo.com">
 
             </TextView>
 
@@ -72,14 +72,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Novo nome"
+                android:text="Novo e-mail"
                 android:textColor="@color/black" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
                 android:layout_marginRight="30dp"
-                android:hint="Digite seu nome" />
+                android:hint="Digite seu e-mail" />
         </LinearLayout>
 
         <RelativeLayout

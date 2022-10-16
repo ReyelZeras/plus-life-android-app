@@ -18,10 +18,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".AtualizarNomeActivity"
+=======
+            android:name=".QuemPodeDoar"
+            android:exported="false" />
+        <activity
+            android:name=".AtualizarSenha"
+            android:exported="false" />
+        <activity
+            android:name=".AtualizarEmail"
+            android:exported="false" />
+        <activity
+            android:name=".AtualizarNome"
+>>>>>>> db4607c081b91edb407ab83c654da5db115d71f6
             android:exported="false" />
         <activity
             android:name=".ComoDoarActivity"
