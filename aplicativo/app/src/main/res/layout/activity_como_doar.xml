@@ -1,293 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ComoDoarActivity">
 
-    <LinearLayout
+    <include layout="@layout/toolbar" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:scaleType="center"
-            android:src="@drawable/como_doar" />
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:autoSizeTextType="uniform"
-                android:text="• Apresentar um documento oficial com foto (RG, CNH, etc.) em bom estado de conservação;"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:layout_marginBottom="15dp"
+                android:scaleType="center"
+                android:src="@drawable/como_doar" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:autoSizeTextType="uniform"
-                android:text="• Ter idade entre 16 e 69 anos desde que a primeira doação seja realizada até os 60 anos (menores de idade precisam de autorização e presença dos pais no momento da doação);"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:autoSizeTextType="uniform"
+                    android:text="• Apresentar um documento oficial com foto (RG, CNH, etc.) em bom estado de conservação;"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:autoSizeTextType="uniform"
-                android:text="• Não é permitido realizar doação acompanhado de menores de 12 anos (exceto se o menor estiver acompanhado de dois adultos, sendo necessário o revezamento dos mesmos enquanto acontece a doação);
-"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:autoSizeTextType="uniform"
+                    android:text="• Ter idade entre 16 e 69 anos desde que a primeira doação seja realizada até os 60 anos (menores de idade precisam de autorização e presença dos pais no momento da doação);"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Estar em boas condições de saúde.
-"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:autoSizeTextType="uniform"
+                    android:text="• Não é permitido realizar doação acompanhado de menores de 12 anos (exceto se o menor estiver acompanhado de dois adultos, sendo necessário o revezamento dos mesmos enquanto acontece a doação);"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Pesar no mínimo 50 kg."
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Estar em boas condições de saúde.
+    "
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Não ter feito uso de bebida alcoólica nas últimas 12 horas;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Pesar no mínimo 50 kg."
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Após o almoço ou ingestão de alimentos gordurosos, aguardar 3 horas. Não é necessário estar em jejum desde que evite alimentos gordurosos;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Não ter feito uso de bebida alcoólica nas últimas 12 horas;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Se fez tatuagem e/ou piercing, aguardar 12 meses. Exceto para região genital e língua (12 meses após a retirada);"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Após o almoço ou ingestão de alimentos gordurosos, aguardar 3 horas. Não é necessário estar em jejum desde que evite alimentos gordurosos;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Em caso de diabetes, deverá estar controlada e não fazer uso de insulina;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Se fez tatuagem e/ou piercing, aguardar 12 meses. Exceto para região genital e língua (12 meses após a retirada);"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Se passou por endoscopia ou procedimento endoscópico, aguardar 6 meses;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Em caso de diabetes, deverá estar controlada e não fazer uso de insulina;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_horizontal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Não ter tido Doença de Chagas;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Se passou por endoscopia ou procedimento endoscópico, aguardar 6 meses;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_gravity="center_horizontal"
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Não ter tido Infecções Sexualmente Transmissíveis (IST);"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Não ter tido Doença de Chagas;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_gravity="center_horizontal"
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Candidatos que apresentaram sintomas de gripe e/ou resfriado devem aguardar 10 dias após cessarem os sintomas e o uso das medicações;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Não ter tido Infecções Sexualmente Transmissíveis (IST);"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_gravity="center_horizontal"
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="•  Aguardar 48h para doar caso tenha tomado a vacina da gripe, desde que não esteja com nenhum sintoma;"
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Candidatos que apresentaram sintomas de gripe e/ou resfriado devem aguardar 10 dias após cessarem os sintomas e o uso das medicações;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_gravity="center_horizontal"
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="• Candidatos que viajaram para o exterior devem entrar em contato com o Banco de Sangue para entender o período que não pode doar (varia de país a país)."
-                android:autoSizeTextType="uniform"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="•  Aguardar 48h para doar caso tenha tomado a vacina da gripe, desde que não esteja com nenhum sintoma;"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="• Candidatos que viajaram para o exterior devem entrar em contato com o Banco de Sangue para entender o período que não pode doar (varia de país a país)."
+                    android:autoSizeTextType="uniform"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp">
+            </LinearLayout>
 
         </LinearLayout>
+    </ScrollView>
 
-
-    </LinearLayout>
-
-</ScrollView>
+    <include
+        android:id="@+id/include"
+        layout="@layout/navbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

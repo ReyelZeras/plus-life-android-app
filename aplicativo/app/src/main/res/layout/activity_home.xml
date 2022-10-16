@@ -1,106 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <LinearLayout
+    <include layout="@layout/toolbar" />
+
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@drawable/edit_text_border">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_nav_home_red" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_nav_map_red" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_nav_person_red" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/home_img"
-            android:layout_marginTop="50dp"
-            />
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            android:padding="20dp" >
+            >
 
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/home_text"
-                android:textSize="20sp"
-                android:textColor="@color/pl_light_gray"
-                android:layout_marginTop="20dp"
+                android:src="@drawable/home_img"
+                android:layout_marginTop="80dp"
                 />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="@string/home_main_button"
-                android:background="@drawable/home_main_buttom_background"
-                android:backgroundTint="@color/pl_dark_gray"
-                android:textColor="@color/white"
-                android:layout_marginTop="20dp"
-                />
-
-            <TextView
-                android:id="@+id/tv_feed"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/home_item_1"
-                android:textSize="25sp"
-                android:textColor="@color/pl_red"
-                android:layout_marginTop="30dp"
-                />
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp" >
 
-            <TextView
-                android:id="@+id/tv_como_doar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/home_item_2"
-                android:textSize="25sp"
-                android:textColor="@color/pl_red"
-                android:layout_marginTop="15dp"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_text"
+                    android:textSize="20sp"
+                    android:textColor="@color/pl_light_gray"
+                    android:layout_marginTop="20dp"
+                    />
 
-            <TextView
-                android:id="@+id/tv_quem_doar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/home_item_3"
-                android:textSize="25sp"
-                android:textColor="@color/pl_red"
-                android:layout_marginTop="15dp"
-                />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/home_main_button"
+                    android:background="@drawable/home_main_buttom_background"
+                    android:backgroundTint="@color/pl_dark_gray"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_feed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_item_1"
+                    android:textSize="25sp"
+                    android:textColor="@color/pl_red"
+                    android:layout_marginTop="30dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_como_doar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_item_2"
+                    android:textSize="25sp"
+                    android:textColor="@color/pl_red"
+                    android:layout_marginTop="15dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_quem_doar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_item_3"
+                    android:textSize="25sp"
+                    android:textColor="@color/pl_red"
+                    android:layout_marginTop="15dp"
+                    />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+    <include layout="@layout/navbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

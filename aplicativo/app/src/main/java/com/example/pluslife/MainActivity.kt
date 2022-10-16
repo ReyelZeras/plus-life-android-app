@@ -21,34 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogin.setOnClickListener{ tryLogin() }
-        binding.tvCadastrar.setOnClickListener { telaCadastro() }
-    }
-
-    private fun tryLogin(){
-        val email = binding.etEmail.text.toString()
-        val senha = binding.etSenha.text.toString()
-
-        val request = Rest.getInstance().create(Usuario::class.java)
-
-        request.login(email, senha).enqueue(object: Callback<LoginResponse>{
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                binding.teste.setText(response.body().toString())
-                if (response.code() == 200) { telaHome() }
-            }
-
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                binding.teste.setText(t.message)
-            }
-        })
-    }
-
-    fun telaCadastro(){
-        val telaCadastro = Intent(
-            this,
-            CadastroActivity::class.java
-        )
-        startActivity(telaCadastro)
+        //telaLogin()
+        telaHome()
     }
 
     fun telaHome(){
@@ -57,5 +31,13 @@ class MainActivity : AppCompatActivity() {
             HomeActivity::class.java
         )
         startActivity(telaHome)
+    }
+
+    private fun telaLogin() {
+        val telaLogin = Intent(
+            this,
+            LoginActivity::class.java
+        )
+        startActivity(telaLogin)
     }
 }
