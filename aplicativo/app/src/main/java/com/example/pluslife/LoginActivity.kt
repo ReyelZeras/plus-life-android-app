@@ -33,7 +33,14 @@ class LoginActivity : AppCompatActivity() {
         request.login(email, senha).enqueue(object: Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 binding.teste.setText(response.body().toString())
-                if (response.code() == 200) { telaHome() }
+
+                if (response.code() == 200) {
+                    telaHome()
+                }
+
+                if (response.code() == 204) {
+                    binding.teste.setText("E-mail ou senha inválido")
+                }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

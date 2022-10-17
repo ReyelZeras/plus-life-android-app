@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //telaLogin()
-        telaHome()
+        telaLogin()
+        //telaHome()
     }
 
     fun telaHome(){
