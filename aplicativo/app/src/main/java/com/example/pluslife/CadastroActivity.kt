@@ -1,5 +1,6 @@
 package com.example.pluslife
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
@@ -63,7 +64,11 @@ class CadastroActivity : AppCompatActivity() {
         request.cadastroDoador(body).enqueue(object: Callback<Void>{
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 binding.mensagem.setText("User:" + response.toString())
-                tryCadastroEndereco(request)
+
+                if (response.code() == 201) {
+                    tryCadastroEndereco(request)
+
+                }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -85,11 +90,23 @@ class CadastroActivity : AppCompatActivity() {
         request.cadastroEndereco(body).enqueue(object : Callback<Void>{
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 binding.mensagem.setText("\nCadastro:" + response.toString())
+                if (response.code() == 201) {
+                    telaLogin()
+                }
+
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 binding.mensagem.setText("\nCad Erro:" + t.message)
             }
         })
+    }
+
+    fun telaLogin(){
+        val telaLogin = Intent(
+            this,
+            HomeActivity::class.java
+        )
+        startActivity(telaLogin)
     }
 }
