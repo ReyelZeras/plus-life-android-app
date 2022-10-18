@@ -90,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_border"
+            android:inputType="textPassword"
             android:hint="Digite seha senha"
             android:padding="5dp"
 

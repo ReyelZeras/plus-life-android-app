@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ComoDoarActivity">
 
-    <include layout="@layout/toolbar" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="15dp"
-                android:scaleType="center"
                 android:src="@drawable/como_doar" />
 
             <LinearLayout
@@ -300,4 +297,7 @@
     <include
         android:id="@+id/include"
         layout="@layout/navbar" />
+
+    <include layout="@layout/toolbar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

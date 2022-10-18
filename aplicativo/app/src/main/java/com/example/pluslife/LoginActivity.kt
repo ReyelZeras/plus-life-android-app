@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
         request.login(email, senha).enqueue(object: Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                binding.tvMensagem.setText(response.body().toString())
+                //binding.tvMensagem.setText(response.body().toString())
 
                 if (response.code() == 200) {
                     telaHome()

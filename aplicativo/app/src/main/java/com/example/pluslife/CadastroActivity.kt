@@ -63,16 +63,17 @@ class CadastroActivity : AppCompatActivity() {
 
         request.cadastroDoador(body).enqueue(object: Callback<Void>{
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                binding.mensagem.setText("User:" + response.toString())
-
+                //binding.tvMensagem.setText("User:" + response.toString())
+                if (response.code() == 200) {
+                    binding.tvMensagem.setText("Email já cadastrado")
+                }
                 if (response.code() == 201) {
                     tryCadastroEndereco(request)
-
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                binding.mensagem.setText("Erro:" + t.message)
+                binding.tvMensagem.setText("Erro:" + t.message)
             }
         })
     }
@@ -89,15 +90,14 @@ class CadastroActivity : AppCompatActivity() {
 
         request.cadastroEndereco(body).enqueue(object : Callback<Void>{
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                binding.mensagem.setText("\nCadastro:" + response.toString())
+                //binding.tvMensagem.setText("\nCadastro:" + response.toString())
                 if (response.code() == 201) {
                     telaLogin()
                 }
-
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                binding.mensagem.setText("\nCad Erro:" + t.message)
+                binding.tvMensagem.setText("\nCad Erro:" + t.message)
             }
         })
     }
@@ -105,7 +105,7 @@ class CadastroActivity : AppCompatActivity() {
     fun telaLogin(){
         val telaLogin = Intent(
             this,
-            HomeActivity::class.java
+            LoginActivity::class.java
         )
         startActivity(telaLogin)
     }

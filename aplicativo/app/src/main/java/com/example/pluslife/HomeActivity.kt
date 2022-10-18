@@ -18,7 +18,16 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.tvComoDoar.setOnClickListener{ telaComoDoar() }
+        binding.tvQuemDoar.setOnClickListener{ telQuemPodeDoar() }
+
     }
+
+    private fun telQuemPodeDoar() {
+        val telQuemPodeDoar = Intent(
+            this,
+            QuemPodeDoar::class.java
+        )
+        startActivity(telQuemPodeDoar)    }
 
     private fun telaComoDoar() {
         val telaComoDoar = Intent(
