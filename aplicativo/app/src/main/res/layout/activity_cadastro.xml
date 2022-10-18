@@ -358,6 +358,16 @@
 
             />
     </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text="Ao clicar em REGISTRAR CONTA estou ciente que os dados informados nesse formulário serão utilizados para realização do cadastro no sistema e não serão utilizados para outros fins."
+            />
+
     <Button
         android:id="@+id/btn_cadastrar"
         android:layout_width="match_parent"
