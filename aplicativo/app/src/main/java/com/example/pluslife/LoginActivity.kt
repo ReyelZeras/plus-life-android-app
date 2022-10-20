@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("USUARIO_ID", response.body()?.id.toString())
                     editor.putString("USUARIO_NOME", response.body()?.nome.toString())
                     editor.putString("USUARIO_EMAIL", response.body()?.email.toString())
+                    editor.putBoolean("LOGADO", true)
                     editor.apply()
                     telaHome()
                 }
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
     fun telaHome() {
         val telaHome = Intent(
             this,
-            HomeActivity::class.java
+            MainActivity::class.java
         )
         startActivity(telaHome)
     }

@@ -1,16 +1,12 @@
 package com.example.pluslife
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import com.example.pluslife.databinding.ActivityMainBinding
-import com.example.pluslife.models.LoginRequest
-import com.example.pluslife.models.LoginResponse
-import com.example.pluslife.rest.Rest
-import com.example.pluslife.services.Usuario
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,17 +17,35 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        telaLogin()
+        val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
 
-        //telaHome()
+        varificaLogin(prefs)
+        navbar()
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(binding.fragmentToolbar.id, ToolbarFragment())
+        transaction.commit()
+
     }
 
-    fun telaHome(){
-        val telaHome = Intent(
-            this,
-            HomeActivity::class.java
-        )
-        startActivity(telaHome)
+    private fun navbar() {
+        binding.navHome.setOnClickListener { trocarTela(HomeFragment()) }
+        binding.navPerfil.setOnClickListener { trocarTela(QuemPodeDoarFragment()) }
+        binding.navPontos.setOnClickListener { trocarTela(ComoDoarFragment()) }
+    }
+
+    private fun varificaLogin(prefs: SharedPreferences) {
+        if (prefs.getBoolean("LOGADO", true)) {
+            trocarTela(HomeFragment())
+        } else {
+            telaLogin()
+        }
+    }
+
+    fun trocarTela(tela: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(binding.fragmentTela.id, tela)
+        transaction.commit()
     }
 
     private fun telaLogin() {
