@@ -13,28 +13,34 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogin.setOnClickListener{ tryLogin() }
+        binding.btnLogin.setOnClickListener { tryLogin() }
         binding.tvCadastrar.setOnClickListener { telaCadastro() }
     }
 
-    private fun tryLogin(){
+    private fun tryLogin() {
         val email = binding.etEmail.text.toString()
         val senha = binding.etSenha.text.toString()
 
         val request = Rest.getInstance().create(Usuario::class.java)
 
-        request.login(email, senha).enqueue(object: Callback<LoginResponse>{
+        request.login(email, senha).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 //binding.tvMensagem.setText(response.body().toString())
 
                 if (response.code() == 200) {
+                    val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
+                    val editor = prefs.edit()
+                    editor.putString("USUARIO_ID", response.body()?.id.toString())
+                    editor.putString("USUARIO_NOME", response.body()?.nome.toString())
+                    editor.putString("USUARIO_EMAIL", response.body()?.email.toString())
+                    editor.apply()
                     telaHome()
                 }
 
@@ -49,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    fun telaCadastro(){
+    fun telaCadastro() {
         val telaCadastro = Intent(
             this,
             CadastroActivity::class.java
@@ -57,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(telaCadastro)
     }
 
-    fun telaHome(){
+    fun telaHome() {
         val telaHome = Intent(
             this,
             HomeActivity::class.java
