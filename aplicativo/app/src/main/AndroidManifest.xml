@@ -17,11 +17,16 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
-
-
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="${MAPS_API_KEY}" /> -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -33,9 +38,6 @@
             android:exported="false" />
         <activity
             android:name=".AtualizarEmail"
-            android:exported="false" />
-        <activity
-            android:name=".AtualizarNome"
             android:exported="false" />
         <activity
             android:name=".ComoDoarActivity"
@@ -60,6 +62,12 @@
         </activity>
         <activity
             android:name=".CadastroActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AtualizarEnderecoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AtualizarNomeActivity"
             android:exported="true" />
     </application>
 

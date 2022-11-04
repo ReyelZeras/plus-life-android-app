@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -20,6 +20,7 @@
             android:layout_marginTop="20dp">
 
             <ImageView
+                android:id="@+id/btn_voltar"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
@@ -76,6 +77,7 @@
                 android:textColor="@color/black" />
 
             <EditText
+                android:id="@+id/et_nome"
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
                 android:layout_marginRight="30dp"
@@ -88,19 +90,26 @@
             android:layout_marginTop="40dp">
 
             <Button
-                android:id="@+id/botao1"
+                android:id="@+id/btn_salvar"
                 android:layout_width="300dp"
                 android:layout_height="65dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/button_border"
                 android:backgroundTint="@color/pl_red"
                 android:text="Salvar"
-                android:textAllCaps="false"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@color/pl_white" />
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_mensagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pl_red"
+            android:textSize="15sp"
+            android:textAlignment="center" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-

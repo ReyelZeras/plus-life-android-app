@@ -1,5 +1,6 @@
 package com.example.pluslife
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,23 +18,24 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvComoDoar.setOnClickListener{ telaComoDoar() }
-        binding.tvQuemDoar.setOnClickListener{ telQuemPodeDoar() }
+        binding.tvComoDoar.setOnClickListener{ trocarTela(ComoDoarActivity()) }
+        binding.tvQuemDoar.setOnClickListener{ trocarTela(QuemPodeDoar()) }
+
+        navbar()
 
     }
 
-    private fun telQuemPodeDoar() {
-        val telQuemPodeDoar = Intent(
-            this,
-            QuemPodeDoar::class.java
-        )
-        startActivity(telQuemPodeDoar)    }
-
-    private fun telaComoDoar() {
-        val telaComoDoar = Intent(
-            this,
-            ComoDoarActivity::class.java
-        )
-        startActivity(telaComoDoar)
+    private fun navbar() {
+        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
+        binding.navPontos.setOnClickListener { trocarTela(ComoDoarActivity()) }
     }
+
+    fun trocarTela(tela: Activity){
+        val novaTela = Intent(
+            this,
+            tela::class.java
+        )
+        startActivity(novaTela)
+    }
+
 }

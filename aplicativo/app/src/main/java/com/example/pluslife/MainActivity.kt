@@ -1,5 +1,6 @@
 package com.example.pluslife
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.os.Bundle
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.pluslife.databinding.ActivityMainBinding
+import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_LOGADO
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,39 +22,50 @@ class MainActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
 
         varificaLogin(prefs)
-        navbar()
-
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(binding.fragmentToolbar.id, ToolbarFragment())
-        transaction.commit()
+//        navbar()
+//
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.replace(binding.fragmentToolbar.id, ToolbarFragment())
+//        transaction.commit()
 
     }
 
-    private fun navbar() {
-        binding.navHome.setOnClickListener { trocarTela(HomeFragment()) }
-        binding.navPerfil.setOnClickListener { trocarTela(QuemPodeDoarFragment()) }
-        binding.navPontos.setOnClickListener { trocarTela(ComoDoarFragment()) }
-    }
+//    private fun navbar() {
+//        binding.navHome.setOnClickListener { trocarTela(HomeFragment()) }
+//        binding.navPerfil.setOnClickListener { trocarTela(PerfilFragment()) }
+//        binding.navPontos.setOnClickListener { trocarTela(ComoDoarFragment()) }
+//    }
 
     private fun varificaLogin(prefs: SharedPreferences) {
-        if (prefs.getBoolean("LOGADO", true)) {
-            trocarTela(HomeFragment())
+        if (prefs.getBoolean(USUARIO_LOGADO.toString(), true)) {
+            //trocarTela(HomeFragment())
+            trocarTela(HomeActivity())
         } else {
-            telaLogin()
+            trocarTela(LoginActivity())
         }
     }
 
-    fun trocarTela(tela: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(binding.fragmentTela.id, tela)
-        transaction.commit()
+//    fun trocarTela(tela: Fragment){
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.replace(binding.fragmentTela.id, tela)
+//        transaction.commit()
+//    }
+
+    fun trocarTela(tela: Activity) {
+        val novaTela = Intent(
+            this,
+            tela::class.java
+        )
+        startActivity(novaTela)
     }
 
-    private fun telaLogin() {
-        val telaLogin = Intent(
+    fun telaPerfil() {
+        val novaTela = Intent(
             this,
-            LoginActivity::class.java
+            PerfilActivity::class.java
         )
-        startActivity(telaLogin)
+        startActivity(novaTela)
     }
+
+
 }

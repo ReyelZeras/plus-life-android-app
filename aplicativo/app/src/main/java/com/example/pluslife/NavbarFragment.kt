@@ -1,5 +1,7 @@
 package com.example.pluslife
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +24,19 @@ class NavbarFragment : Fragment(R.layout.fragment_navbar) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
+        binding.navPerfil.setOnClickListener { (activity as MainActivity).telaPerfil() }
+        //binding.navPontos.setOnClickListener { trocarTela(ComoDoarFragment()) }
+
+    }
+
+    fun telaPerfil() {
+        val novaTela = Intent(
+            activity,
+            PerfilActivity::class.java
+        )
+        startActivity(novaTela)
     }
 
 }
