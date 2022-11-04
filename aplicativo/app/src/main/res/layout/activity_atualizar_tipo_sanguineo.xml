@@ -22,6 +22,7 @@
             >
 
             <ImageView
+                android:id="@+id/btn_voltar"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_weight="2"
@@ -81,7 +82,7 @@
                 ></TextView>
 
             <Spinner
-                android:id="@+id/tipo_sanguineo"
+                android:id="@+id/sp_tipo_sanguineo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -97,7 +98,7 @@
                 >
 
                 <Button
-                    android:id="@+id/botao1"
+                    android:id="@+id/btn_salvar"
                     android:layout_width="300dp"
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
@@ -105,14 +106,20 @@
                     android:backgroundTint="@color/pl_red"
                     android:text="Salvar"
                     android:textAlignment="center"
-                    android:textColor="@color/pl_white">
-
-                </Button>
+                    android:textColor="@color/pl_white"></Button>
 
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/tv_mensagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pl_red"
+                android:textSize="15sp"
+                android:textAlignment="center" />
 
         </LinearLayout>
+
 
 
     </LinearLayout>
