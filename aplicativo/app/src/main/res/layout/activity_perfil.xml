@@ -59,10 +59,11 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_nome_atual"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Reyel Zapateiro Magalhães">
+                tools:text="Reyel Zapateiro Magalhães">
 
             </TextView>
             <ImageView
@@ -93,10 +94,11 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_email_atual"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="email@exemplo.com.br">
+                tools:text="email@exemplo.com.br">
 
             </TextView>
             <ImageView
@@ -126,6 +128,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_tipo_sang_atual"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -159,10 +162,13 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_endereco_atual"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Rua Haddok Lobo, 335, Consolação. São ...">
+                android:singleLine="true"
+                android:ellipsize="end"
+                tools:text="Rua Haddok Lobo, 335, Consolação. São ...">
 
             </TextView>
             <ImageView

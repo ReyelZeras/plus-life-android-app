@@ -7,11 +7,10 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingTop="50dp"
+        android:padding="30dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -21,18 +20,18 @@
             >
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_voltar"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_weight="2"
-                android:layout_marginLeft="30dp"
-                android:scaleType="centerInside"
+                android:scaleType="fitStart"
                 android:src="@drawable/seta_voltar" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:paddingLeft="-30dp"
+                android:layout_height="wrap_content"
                 android:text="Atualizar endereço"
-                android:layout_weight="1"
                 android:textSize="20dp"
                 android:textColor="@color/black"
                 >
@@ -55,9 +54,6 @@
 
             </TextView>
 
-
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -65,9 +61,10 @@
             android:layout_height="wrap_content"
             >
             <TextView
+                android:id="@+id/tv_endereco_atual"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rua Haddock Lobo, 353, Consolação. São Paulo - SP"
+                tools:text="Rua Haddock Lobo, 353, Consolação. São Paulo - SP"
                 android:layout_marginTop="10dp">
 
             </TextView>
@@ -88,9 +85,9 @@
 
             </TextView>
             <EditText
+                android:id="@+id/et_rua"
                 android:layout_width="match_parent"
                 android:layout_height="30sp">
-
             </EditText>
 
         </LinearLayout>
@@ -109,9 +106,9 @@
 
             </TextView>
             <EditText
+                android:id="@+id/et_numero"
                 android:layout_width="match_parent"
                 android:layout_height="30sp">
-
             </EditText>
 
         </LinearLayout>
@@ -130,9 +127,9 @@
 
             </TextView>
             <EditText
+                android:id="@+id/et_bairro"
                 android:layout_width="match_parent"
                 android:layout_height="30sp">
-
             </EditText>
 
         </LinearLayout>
@@ -148,12 +145,12 @@
                 android:text="Cidade"
                 android:textColor="@color/black"
                 android:layout_marginTop="20dp">
-
             </TextView>
+
             <EditText
+                android:id="@+id/et_cidade"
                 android:layout_width="match_parent"
                 android:layout_height="30sp">
-
             </EditText>
 
         </LinearLayout>
@@ -191,7 +188,7 @@
             >
 
             <Button
-                android:id="@+id/botao1"
+                android:id="@+id/btn_salvar"
                 android:layout_width="300dp"
                 android:layout_height="65dp"
                 android:layout_centerInParent="true"
@@ -200,12 +197,21 @@
                 android:text="Salvar"
                 android:textAlignment="center"
                 android:textColor="@color/pl_white">
-
             </Button>
 
         </RelativeLayout>
 
+        <TextView
+            android:id="@+id/tv_mensagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pl_red"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -24,7 +24,7 @@ class AtualizarNomeActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
-        binding.btnVoltar.setOnClickListener { trocarTela(HomeActivity()) }
+        binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
 
         binding.btnSalvar.setOnClickListener {
             val doadorModel = buscarDados()
@@ -53,7 +53,7 @@ class AtualizarNomeActivity : AppCompatActivity() {
 
         return DoadorModel(
             id = prefs.getString(DadosSharedSecret.USUARIO_ID.toString(), ""),
-            nome = prefs.getString(DadosSharedSecret.USUARIO_NOME.toString(), ""),
+            nome = binding.etNome.text.toString(),
             email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
             nascimento = if (nascimento === "NULL") LocalDate.parse(nascimento) else null,
             tipoSanguineo = prefs.getString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")

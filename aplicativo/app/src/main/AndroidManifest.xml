@@ -69,6 +69,9 @@
         <activity
             android:name=".AtualizarNomeActivity"
             android:exported="true" />
+        <activity
+            android:name=".AtualizarTipoSanguineoActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

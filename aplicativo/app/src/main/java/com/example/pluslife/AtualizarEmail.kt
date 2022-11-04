@@ -20,7 +20,8 @@ class AtualizarEmail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_atualizar_email)
+        binding = ActivityAtualizarEmailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
@@ -55,7 +56,7 @@ class AtualizarEmail : AppCompatActivity() {
         return DoadorModel(
             id = prefs.getString(DadosSharedSecret.USUARIO_ID.toString(), ""),
             nome = prefs.getString(DadosSharedSecret.USUARIO_NOME.toString(), ""),
-            email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
+            email = binding.etEmail.text.toString(),
             nascimento = if (nascimento === "NULL") LocalDate.parse(nascimento) else null,
             tipoSanguineo = prefs.getString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")
         )

@@ -294,9 +294,40 @@
         </LinearLayout>
     </ScrollView>
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/navbar" />
+    <!-- Nav Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/edit_text_border"
+        android:gravity="bottom"
+        android:backgroundTint="@color/white"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/nav_home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nav_home_red" />
+
+        <ImageView
+            android:id="@+id/nav_pontos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nav_map_red" />
+
+        <ImageView
+            android:id="@+id/nav_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nav_person_red" />
+    </LinearLayout>
 
     <include layout="@layout/toolbar" />
 

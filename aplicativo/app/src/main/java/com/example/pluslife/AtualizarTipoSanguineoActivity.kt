@@ -74,7 +74,7 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
             nome = prefs.getString(DadosSharedSecret.USUARIO_NOME.toString(), ""),
             email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
             nascimento = if (nascimento === "NULL") LocalDate.parse(nascimento) else null,
-            tipoSanguineo = prefs.getString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")
+            tipoSanguineo = binding.spTipoSanguineo.selectedItem.toString()
         )
     }
 }

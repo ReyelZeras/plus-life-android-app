@@ -8,7 +8,7 @@ import android.os.Bundle
 import com.example.pluslife.databinding.ActivityPerfilBinding
 import com.example.pluslife.databinding.ActivityLoginBinding
 import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.DadosSharedSecret.*
 import java.time.LocalDate
 
 class PerfilActivity : AppCompatActivity() {
@@ -24,19 +24,36 @@ class PerfilActivity : AppCompatActivity() {
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val nomeDoador = prefs.getString(DadosSharedSecret.USUARIO_NOME.toString(), "doador")
+        val nomeDoador = prefs.getString(USUARIO_NOME.toString(), "doador")
         binding.titulo.text = "Olá, $nomeDoador"
 
         navbar()
+        iniciarLabels()
         binding.btnVoltar.setOnClickListener { trocarTela(HomeActivity()) }
         binding.edtNome.setOnClickListener { trocarTela(AtualizarNomeActivity()) }
         binding.edtEmail.setOnClickListener { trocarTela(AtualizarEmail()) }
+        binding.edtTipoSang.setOnClickListener { trocarTela(AtualizarTipoSanguineoActivity()) }
         binding.edtEndereco.setOnClickListener { trocarTela(AtualizarEnderecoActivity()) }
     }
 
+    private fun iniciarLabels() {
+        binding.tvNomeAtual.text = prefs.getString(USUARIO_NOME.toString(), "Reyel Zapateiro Magalhães 2")
+        binding.tvEmailAtual.text = prefs.getString(USUARIO_EMAIL.toString(), "email@gmail.com")
+        binding.tvTipoSangAtual.text = prefs.getString(USUARIO_TIPO_SANGUINEO.toString(), "AB-")
+        binding.tvEnderecoAtual.text = montarEnderecoAtual()
+    }
+    private fun montarEnderecoAtual(): String {
+        val rua = prefs.getString(ENDERECO_RUA.toString(), "Rua Haddok Lobo")
+        val numero = prefs.getInt(ENDERECO_NUMERO.toString(), 353)
+        val bairro = prefs.getString(ENDERECO_BAIRRO.toString(), "Consolação")
+        val cidade = prefs.getString(ENDERECO_CIDADE.toString(), "São Paulo")
+        val estado = prefs.getString(ENDERECO_ESTADO.toString(), "SP")
+        return "$rua, $numero, $bairro, $cidade - $estado"
+    }
+
+
     private fun navbar() {
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
-        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
         binding.navPontos.setOnClickListener { trocarTela(ComoDoarActivity()) }
     }
 
