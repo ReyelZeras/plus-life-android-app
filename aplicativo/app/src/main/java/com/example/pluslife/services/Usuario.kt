@@ -6,6 +6,7 @@ import com.example.pluslife.models.LoginRequest
 import com.example.pluslife.models.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -20,4 +21,7 @@ interface Usuario {
 
     @POST("/usuario/endereco")
     fun cadastroEndereco(@Body body: CadastroEnderecoRequest): Call<Void>
+
+    @DELETE("/usuario/{id}")
+    fun excluir(@Path("id") id: Int): Call<Void>
 }

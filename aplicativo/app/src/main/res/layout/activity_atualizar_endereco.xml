@@ -21,16 +21,15 @@
 
             <ImageView
                 android:id="@+id/btn_voltar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="fitStart"
-                android:src="@drawable/seta_voltar" />
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_back_red" />
 
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:paddingLeft="-30dp"
-                android:layout_height="wrap_content"
                 android:text="Atualizar endereço"
                 android:textSize="20dp"
                 android:textColor="@color/black"
@@ -87,9 +86,9 @@
             <EditText
                 android:id="@+id/et_rua"
                 android:layout_width="match_parent"
-                android:layout_height="30sp">
-            </EditText>
+                android:layout_height="40sp"
 
+                android:hint="Digite sua rua" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,8 +107,9 @@
             <EditText
                 android:id="@+id/et_numero"
                 android:layout_width="match_parent"
-                android:layout_height="30sp">
-            </EditText>
+                android:layout_height="40sp"
+
+                android:hint="Digite o numero do seu endereço" />
 
         </LinearLayout>
 
@@ -129,8 +129,9 @@
             <EditText
                 android:id="@+id/et_bairro"
                 android:layout_width="match_parent"
-                android:layout_height="30sp">
-            </EditText>
+                android:layout_height="40sp"
+
+                android:hint="Digite o seu bairro" />
 
         </LinearLayout>
 
@@ -150,8 +151,9 @@
             <EditText
                 android:id="@+id/et_cidade"
                 android:layout_width="match_parent"
-                android:layout_height="30sp">
-            </EditText>
+                android:layout_height="40sp"
+
+                android:hint="Digite o sua cidade" />
 
         </LinearLayout>
 
@@ -171,7 +173,7 @@
             <Spinner
                 android:id="@+id/et_estado"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40sp"
                 android:hint="Selecione seu estado"
                 android:layout_weight="2"
                 android:background="@drawable/edit_text_border"

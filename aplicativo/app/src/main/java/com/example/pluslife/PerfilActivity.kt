@@ -8,9 +8,13 @@ import android.os.Bundle
 import android.text.method.TextKeyListener.clear
 import androidx.core.content.edit
 import com.example.pluslife.databinding.ActivityPerfilBinding
-import com.example.pluslife.databinding.ActivityLoginBinding
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.enum.DadosSharedSecret.*
+import com.example.pluslife.rest.Rest
+import com.example.pluslife.services.Usuario
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.LocalDate
 
 class PerfilActivity : AppCompatActivity() {
@@ -36,11 +40,40 @@ class PerfilActivity : AppCompatActivity() {
         binding.edtEmail.setOnClickListener { trocarTela(AtualizarEmail()) }
         binding.edtTipoSang.setOnClickListener { trocarTela(AtualizarTipoSanguineoActivity()) }
         binding.edtEndereco.setOnClickListener { trocarTela(AtualizarEnderecoActivity()) }
-        binding.btnSair.setOnClickListener {
-            val editor = prefs.edit()
-            editor.clear()
-            editor.apply()
-            trocarTela(MainActivity())
+        binding.btnSair.setOnClickListener { logout() }
+
+        binding.btnApagarConta.setOnClickListener { excluirConta() }
+    }
+
+    private fun logout() {
+        val editor = prefs.edit()
+        editor.clear()
+        editor.apply()
+        trocarTela(MainActivity())
+    }
+
+    private fun excluirConta() {
+        val request = Rest.getInstance().create(Usuario::class.java)
+        val id = prefs.getInt(USUARIO_ID.toString(), 0)
+
+        //verifica se o id está em prefs ou não, pois se n estiver será 0
+        if (id != 0) {
+            request.excluir(id).enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.code() == 200) {
+                        binding.tvMensagem.text = "Conta excluida com sucesso!"
+                        logout()
+                    }
+
+                    if (response.code() == 200) {
+                        binding.tvMensagem.text = "Falha ao excluir conta: ID de Usuário não encontrado"
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    binding.tvMensagem.text = "Ocorreu um erro ao excluir sua conta"
+                }
+            })
         }
     }
 

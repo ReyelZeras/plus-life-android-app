@@ -8,6 +8,9 @@
     <string name="home_item_2"><u><b>O que precisa para doar?</b></u></string>
     <string name="home_item_3"><u><b>Para quem doar?</b></u></string>
 
+    <string name="perfil_apagar_conta"><b>Apagar Conta</b></string>
+    <string name="perfil_sair"><b>Sair</b></string>
+
     <!-- Arrays -->
     <string-array name="tipos_sanguineos">
         <item>Selecione seu tipo</item>
@@ -157,4 +160,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
 </resources>
