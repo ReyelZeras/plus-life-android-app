@@ -8,7 +8,12 @@ import android.os.Bundle
 import com.example.pluslife.databinding.ActivityAtualizarNomeBinding
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
+import com.example.pluslife.services.Doador
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.LocalDate
 
 class AtualizarNomeActivity : AppCompatActivity() {
@@ -22,21 +27,25 @@ class AtualizarNomeActivity : AppCompatActivity() {
         binding = ActivityAtualizarNomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        atualizarService = AtualizarService()
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
         binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
 
         binding.btnSalvar.setOnClickListener {
-            val doadorModel = buscarDados()
-            when (atualizarService.tryAtualizarDoador(doadorModel)) {
-                0 -> { binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu nome" }
-                200 -> {
-                    binding.tvMensagem.text = "Nome atualizado com sucesso"
-                    val editor = prefs.edit()
-                    editor.putString(DadosSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
-                    editor.apply()
-                }
-            }
+
+            tryAtualizarDoador(buscarDados())
+//            when (atualizarService.tryAtualizarDoador(doadorModel)) {
+//                0 -> { binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu nome" }
+//                3 -> { binding.tvMensagem.text = "Caio hideki" }
+//                200 -> {
+//                    binding.tvMensagem.text = "Nome atualizado com sucesso"
+//                    val editor = prefs.edit()
+//                    editor.putString(DadosSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
+//                    editor.apply()
+//                }
+//            }
+
         }
     }
 
@@ -55,8 +64,26 @@ class AtualizarNomeActivity : AppCompatActivity() {
             id = prefs.getString(DadosSharedSecret.USUARIO_ID.toString(), ""),
             nome = binding.etNome.text.toString(),
             email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
-            nascimento = if (nascimento === "NULL") LocalDate.parse(nascimento) else null,
+            nascimento = if (nascimento != "NULL") LocalDate.parse(nascimento) else null,
             tipoSanguineo = prefs.getString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")
         )
+    }
+
+    fun tryAtualizarDoador(doador: DoadorModel) {
+
+        val request = Rest.getInstance().create(Doador::class.java)
+        request.atualizar(doador).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                binding.tvMensagem.text = "Nome atualizado com sucesso"
+                val editor = prefs.edit()
+                editor.putString(DadosSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
+                editor.apply()
+
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu nome"
+            }
+        })
     }
 }

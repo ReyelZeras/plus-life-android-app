@@ -16,7 +16,6 @@ class AtualizarService {
 
         val request = Rest.getInstance().create(Doador::class.java)
         var success = 0
-
         request.atualizar(doador).enqueue(object : Callback<Void>{
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 success = response.code()
@@ -24,7 +23,7 @@ class AtualizarService {
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                success = 0
+                success = 1
             }
         })
 

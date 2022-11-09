@@ -12,7 +12,12 @@ import com.example.pluslife.databinding.ActivityAtualizarTipoSanguineoBinding
 import com.example.pluslife.databinding.ActivityCadastroBinding
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
+import com.example.pluslife.services.Doador
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.LocalDate
 
 class AtualizarTipoSanguineoActivity : AppCompatActivity() {
@@ -30,22 +35,7 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
         binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
-
-        binding.btnSalvar.setOnClickListener {
-            val doadorModel = buscarDados()
-            when (atualizarService.tryAtualizarDoador(doadorModel)) {
-                0 -> { binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu tipo sanguíneo" }
-                200 -> {
-                    binding.tvMensagem.text = "Tipo sanguíneo atualizado com sucesso"
-                    val editor = prefs.edit()
-                    editor.putString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), binding.spTipoSanguineo.selectedItem.toString())
-                    editor.apply()
-                }
-            }
-        }
-
-        binding.btnSalvar.setOnClickListener{}
-
+        binding.btnSalvar.setOnClickListener { tryAtualizarDoador(buscarDados()) }
 
         val spinner: Spinner = binding.spTipoSanguineo
         ArrayAdapter.createFromResource(
@@ -73,8 +63,26 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
             id = prefs.getString(DadosSharedSecret.USUARIO_ID.toString(), ""),
             nome = prefs.getString(DadosSharedSecret.USUARIO_NOME.toString(), ""),
             email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
-            nascimento = if (nascimento === "NULL") LocalDate.parse(nascimento) else null,
+            nascimento = if (nascimento != "NULL") LocalDate.parse(nascimento) else null,
             tipoSanguineo = binding.spTipoSanguineo.selectedItem.toString()
         )
+    }
+
+    fun tryAtualizarDoador(doador: DoadorModel) {
+
+        val request = Rest.getInstance().create(Doador::class.java)
+        request.atualizar(doador).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                binding.tvMensagem.text = "Tipo sanguíneo atualizado com sucesso"
+                val editor = prefs.edit()
+                editor.putString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), binding.spTipoSanguineo.selectedItem.toString())
+                editor.apply()
+
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu tipo sanguíneo"
+            }
+        })
     }
 }

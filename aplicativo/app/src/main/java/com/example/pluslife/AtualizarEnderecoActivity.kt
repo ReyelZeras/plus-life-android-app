@@ -13,7 +13,12 @@ import com.example.pluslife.models.CadastroEnderecoRequest
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.UsuarioEnderecoRequest
 import com.example.pluslife.models.enum.DadosSharedSecret.*
+import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
+import com.example.pluslife.services.Usuario
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.LocalDate
 
 class AtualizarEnderecoActivity : AppCompatActivity() {
@@ -51,13 +56,7 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
             val bairro = binding.etBairro.text.toString()
             val endereco = montarEndereco(bairro, rua, numero, cidade, estado)
 
-            when (atualizarService.tryAtualizarEndereco(endereco)) {
-                0 -> { binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu endereço" }
-                200 -> {
-                    binding.tvMensagem.text = "Endereço atualizado com sucesso"
-                    atualizarSharedPreferences(bairro, rua, numero, cidade, estado)
-                }
-            }
+            tryAtualizarEndereco(endereco)
         }
     }
 
@@ -102,11 +101,36 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
         cidade: String,
         estado: String
     ) = CadastroEnderecoRequest(
-            email = prefs.getString(USUARIO_NOME.toString(), "")!!,
+            email = prefs.getString(USUARIO_EMAIL.toString(), "")!!,
             bairro = bairro,
             rua = rua,
             numero = numero,
             cidade = cidade,
             estado = estado
     )
+
+    fun tryAtualizarEndereco(enderecoRequest: CadastroEnderecoRequest, ) {
+        val request = Rest.getInstance().create(Usuario::class.java)
+
+        request.cadastroEndereco(enderecoRequest).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if(response.code() == 201){
+                    binding.tvMensagem.text = "Endereço atualizado com sucesso"
+                    atualizarSharedPreferences(
+                        enderecoRequest.bairro,
+                        enderecoRequest.rua,
+                        enderecoRequest.numero,
+                        enderecoRequest.cidade,
+                        enderecoRequest.estado
+                    )
+                }else {
+                    binding.tvMensagem.text = "Caio hideki ${response}"
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu endereço"
+            }
+        })
+    }
 }

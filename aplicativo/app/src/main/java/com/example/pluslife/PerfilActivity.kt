@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.TextKeyListener.clear
+import androidx.core.content.edit
 import com.example.pluslife.databinding.ActivityPerfilBinding
 import com.example.pluslife.databinding.ActivityLoginBinding
 import com.example.pluslife.models.DoadorModel
@@ -34,6 +36,12 @@ class PerfilActivity : AppCompatActivity() {
         binding.edtEmail.setOnClickListener { trocarTela(AtualizarEmail()) }
         binding.edtTipoSang.setOnClickListener { trocarTela(AtualizarTipoSanguineoActivity()) }
         binding.edtEndereco.setOnClickListener { trocarTela(AtualizarEnderecoActivity()) }
+        binding.btnSair.setOnClickListener {
+            val editor = prefs.edit()
+            editor.clear()
+            editor.apply()
+            trocarTela(MainActivity())
+        }
     }
 
     private fun iniciarLabels() {

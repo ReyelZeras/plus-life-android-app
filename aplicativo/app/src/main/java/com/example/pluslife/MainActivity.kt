@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     private fun varificaLogin(prefs: SharedPreferences) {
-        if (prefs.getBoolean(USUARIO_LOGADO.toString(), true)) {
+        if (prefs.getBoolean(USUARIO_LOGADO.toString(), false)) {
             //trocarTela(HomeFragment())
             trocarTela(HomeActivity())
         } else {
