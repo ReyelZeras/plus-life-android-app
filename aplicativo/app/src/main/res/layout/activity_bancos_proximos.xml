@@ -1,56 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BancosProximosActivity">
 
-    <LinearLayout
+    <include android:id="@+id/toolbar" layout="@layout/toolbar" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/print_map"/>
+
+            <TextView
+                android:id="@+id/tv_pontos_proximos"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="PONTOS MAIS PRÓXIMOS"/>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@color/pl_dark_red"
+                android:focusable="false" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:itemCount="10"
+                tools:listitem="@layout/res_card_item" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <!-- Nav Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/edit_text_border"
+        android:gravity="bottom"
+        android:backgroundTint="@color/white"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mapa"/>
+            android:id="@+id/nav_home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nav_home_red" />
 
-        <TextView
-            android:id="@+id/tv_pontos_proximos"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:text="PONTOS MAIS PRÓXIMOS"/>
+        <ImageView
+            android:id="@+id/nav_pontos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nav_map_red" />
 
-        <View
-            android:layout_marginTop="10dp"
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:background="@color/pl_dark_red"
-            android:focusable="false" />
-
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            tools:listitem="@layout/res_card_item"
-            tools:itemCount="10"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="1"/>
-
+        <ImageView
+            android:id="@+id/nav_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nav_person_red" />
     </LinearLayout>
 
 
 
-
-
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

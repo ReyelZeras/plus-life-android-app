@@ -28,25 +28,12 @@ class AtualizarNomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         atualizarService = AtualizarService()
+
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
         binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
 
-        binding.btnSalvar.setOnClickListener {
-
-            tryAtualizarDoador(buscarDados())
-//            when (atualizarService.tryAtualizarDoador(doadorModel)) {
-//                0 -> { binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu nome" }
-//                3 -> { binding.tvMensagem.text = "Caio hideki" }
-//                200 -> {
-//                    binding.tvMensagem.text = "Nome atualizado com sucesso"
-//                    val editor = prefs.edit()
-//                    editor.putString(DadosSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
-//                    editor.apply()
-//                }
-//            }
-
-        }
+        binding.btnSalvar.setOnClickListener { tryAtualizarDoador(buscarDados()) }
     }
 
     fun trocarTela(tela: Activity){
