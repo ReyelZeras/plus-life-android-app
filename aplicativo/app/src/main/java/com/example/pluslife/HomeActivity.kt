@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
-        binding.navPontos.setOnClickListener { trocarTela(ComoDoarActivity()) }
+        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
     }
 
     fun trocarTela(tela: Activity){
