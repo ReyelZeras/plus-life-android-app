@@ -1,5 +1,6 @@
 package com.example.pluslife
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,8 @@ class BancosProximosActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
+
+        navbar()
 
         val endereco = montarUsuarioEndereco()
         tryBuscarPontosProximos(endereco)
@@ -74,5 +77,18 @@ class BancosProximosActivity : AppCompatActivity() {
             cidade = prefs.getString(ENDERECO_CIDADE.toString(), ""),
             estado = prefs.getString(ENDERECO_ESTADO.toString(), "")
         )
+    }
+
+    private fun navbar() {
+        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
+        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
+    }
+
+    fun trocarTela(tela: Activity) {
+        val novaTela = Intent(
+            this,
+            tela::class.java
+        )
+        startActivity(novaTela)
     }
 }

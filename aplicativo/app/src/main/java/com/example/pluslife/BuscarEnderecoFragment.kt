@@ -16,4 +16,6 @@ class BuscarEnderecoFragment: Fragment() {
         return inflater.inflate(R.layout.fragment_buscar_endereco, container, false)
     }
 
+
+
 }
