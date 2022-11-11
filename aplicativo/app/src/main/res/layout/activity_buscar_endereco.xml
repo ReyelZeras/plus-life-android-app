@@ -6,20 +6,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include android:id="@+id/toolbar" layout="@layout/toolbar" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="50dp"
-        android:paddingTop="50dp"
+        android:padding="35dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             >
 
             <TextView
@@ -49,15 +48,31 @@
 
             </TextView>
             <EditText
+                android:id="@+id/et_rua"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Digite sua rua">
-
-            </EditText>
-
+                android:layout_height="40sp"
+                android:hint="Digite sua rua" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Número"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp">
+            </TextView>
+            <EditText
+                android:id="@+id/et_numero"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:hint="Digite o numero do seu endereço" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,11 +88,10 @@
 
             </TextView>
             <EditText
+                android:id="@+id/et_bairro"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Digite seu bairro">
-
-            </EditText>
+                android:layout_height="40sp"
+                android:hint="Digite o seu bairro" />
 
         </LinearLayout>
 
@@ -92,14 +106,13 @@
                 android:text="Cidade"
                 android:textColor="@color/black"
                 android:layout_marginTop="20dp">
-
             </TextView>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Digite sua cidade">
 
-            </EditText>
+            <EditText
+                android:id="@+id/et_cidade"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:hint="Digite o sua cidade" />
 
         </LinearLayout>
 
@@ -119,11 +132,12 @@
             <Spinner
                 android:id="@+id/et_estado"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40sp"
                 android:hint="Selecione seu estado"
                 android:layout_weight="2"
                 android:background="@drawable/edit_text_border"
                 android:padding="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 />
 

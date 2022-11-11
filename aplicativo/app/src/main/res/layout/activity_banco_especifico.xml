@@ -118,14 +118,14 @@
                     android:id="@+id/medidor_ap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_ap_estavel"
                     android:layout_weight="3"/>
 
                 <ImageView
                     android:id="@+id/medidor_an"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_an_critico"
                     android:layout_marginLeft="30dp"
                     android:layout_weight="3"/>
 
@@ -133,7 +133,7 @@
                     android:id="@+id/medidor_bp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_bp_atencao"
                     android:layout_marginLeft="30dp"
                     android:layout_weight="3"/>
 
@@ -149,14 +149,14 @@
                     android:id="@+id/medidor_bn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_bn_atencao"
                     android:layout_weight="3"/>
 
                 <ImageView
                     android:id="@+id/medidor_abp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_abn_atencao"
                     android:layout_marginLeft="30dp"
                     android:layout_weight="3"/>
 
@@ -164,7 +164,7 @@
                     android:id="@+id/medidor_abn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_abn_estavel"
                     android:layout_marginLeft="30dp"
                     android:layout_weight="3"/>
             </LinearLayout>
@@ -179,14 +179,14 @@
                     android:id="@+id/medidor_op"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_op_critico"
                     android:layout_weight="2"/>
 
                 <ImageView
                     android:id="@+id/medidor_on"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/estavel"
+                    tools:src="@drawable/medidor_op_critico"
                     android:layout_marginLeft="30dp"
                     android:layout_weight="2"/>
 
