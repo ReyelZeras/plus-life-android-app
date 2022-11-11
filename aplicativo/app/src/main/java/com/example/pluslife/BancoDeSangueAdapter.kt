@@ -11,7 +11,7 @@ import com.example.pluslife.models.BancoDeSangueEnderecoModel
 
 class BancoDeSangueAdapter(
     private val pontos: List<BancoDeSangueEnderecoModel>,
-    private val onclick: () -> Unit
+    private val onclick: (banco: BancoDeSangueEnderecoModel) -> Unit
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutDoCard = LayoutInflater.from(parent.context)
@@ -42,7 +42,7 @@ class BancoDeSangueAdapter(
             tvEndereco.text = "${banco.rua}, ${banco.numero}, ${banco.bairro}, ${banco.cidade} - ${banco.estado}"
             tvTelefone.text = banco.telefone
             tvEmail.text = banco.emailContato
-            btnCard.setOnClickListener { onclick }
+            btnCard.setOnClickListener { onclick(banco) }
         }
     }
 

@@ -12,6 +12,6 @@ data class BancoDeSangueEnderecoModel(
     val estado: String,
     val telefone: String,
     val emailContato: String,
-    val estoque: List<NomeNivelSang>,
+    val estoque: ArrayList<NomeNivelSang>,
     val distancia: Int
 )

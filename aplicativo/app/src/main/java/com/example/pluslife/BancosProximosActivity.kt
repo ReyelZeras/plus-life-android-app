@@ -19,6 +19,7 @@ import com.example.pluslife.services.Doador
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 
 class BancosProximosActivity : AppCompatActivity() {
 
@@ -47,6 +48,12 @@ class BancosProximosActivity : AppCompatActivity() {
                 this,
                 ComoDoarActivity::class.java
             )
+            val endereco = "${it.rua}, ${it.numero}, ${it.bairro}, ${it.cidade} - ${it.estado}"
+            telaPonto.putExtra("nome", it.nome)
+            telaPonto.putExtra("email", it.emailContato)
+            telaPonto.putExtra("telefone", it.telefone)
+            telaPonto.putExtra("endereco", endereco)
+            telaPonto.putExtra("estoque", it.estoque as Serializable)
             startActivity(telaPonto)
         }
     }
