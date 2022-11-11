@@ -150,7 +150,7 @@
             >
 
             <Button
-                android:id="@+id/botao1"
+                android:id="@+id/btn_buscar"
                 android:layout_width="300dp"
                 android:layout_height="65dp"
                 android:layout_centerInParent="true"
