@@ -43,6 +43,7 @@
                     />
 
                 <Button
+                    android:id="@+id/btn_pesquisar_lugares"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:text="@string/home_main_button"

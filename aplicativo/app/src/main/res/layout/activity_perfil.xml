@@ -210,13 +210,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_apagar_conta"
+                    android:text="@string/perfil_sair"
                     android:textSize="15dp"
                     android:textColor="@color/pl_red" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_delete_outline_red" />
+                    android:src="@drawable/ic__logout_red" />
             </LinearLayout>
         </LinearLayout>
         <TextView

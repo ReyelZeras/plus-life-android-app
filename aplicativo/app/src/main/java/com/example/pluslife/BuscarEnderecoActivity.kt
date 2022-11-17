@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.example.pluslife.databinding.ActivityBuscarEnderecoBinding
 import com.example.pluslife.databinding.ActivityHomeBinding
 import com.example.pluslife.models.UsuarioEnderecoRequest
@@ -22,6 +24,17 @@ class BuscarEnderecoActivity : AppCompatActivity() {
 
         binding = ActivityBuscarEnderecoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
+
+        val spinnerEstado : Spinner = binding.etEstado
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.estados,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerEstado.adapter = adapter
+        }
 
         binding.btnBuscar.setOnClickListener {
             val cidade = binding.etCidade.text.toString()

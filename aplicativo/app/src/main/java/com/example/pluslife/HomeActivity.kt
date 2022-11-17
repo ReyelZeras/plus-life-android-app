@@ -2,18 +2,24 @@ package com.example.pluslife
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityHomeBinding
 import com.example.pluslife.databinding.ActivityLoginBinding
+import com.example.pluslife.models.enum.DadosSharedSecret
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    lateinit var prefs: SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -21,6 +27,16 @@ class HomeActivity : AppCompatActivity() {
         binding.tvComoDoar.setOnClickListener{ trocarTela(ComoDoarActivity()) }
         binding.tvQuemDoar.setOnClickListener{ trocarTela(QuemPodeDoar()) }
 
+        binding.btnPesquisarLugares.setOnClickListener {
+
+            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+
+            if(isLogado){
+                trocarTela(BancosProximosActivity())
+            }else {
+                trocarTela(BuscarEnderecoActivity())
+            }
+        }
         navbar()
 
     }
@@ -29,6 +45,7 @@ class HomeActivity : AppCompatActivity() {
         binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
         binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
     }
+
 
     fun trocarTela(tela: Activity){
         val novaTela = Intent(

@@ -24,6 +24,7 @@
                 tools:src="@drawable/arrow_back_ios_24px" />
 
             <TextView
+                android:id="@+id/tv_voltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

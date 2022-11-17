@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener { tryLogin() }
         binding.tvCadastrar.setOnClickListener { telaCadastro() }
+        binding.tvVoltar.setOnClickListener { telaHome() }
     }
 
     private fun tryLogin() {
@@ -73,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
     fun telaHome() {
         val telaHome = Intent(
             this,
-            MainActivity::class.java
+            HomeActivity::class.java
         )
         startActivity(telaHome)
     }

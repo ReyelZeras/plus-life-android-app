@@ -3,6 +3,7 @@ package com.example.pluslife
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -46,7 +47,7 @@ class BancosProximosActivity : AppCompatActivity() {
         recyclerContainer.adapter = BancoDeSangueAdapter(pontos!!) {
             var telaPonto = Intent(
                 this,
-                ComoDoarActivity::class.java
+                BancoEspecificoActivity::class.java
             )
             val endereco = "${it.rua}, ${it.numero}, ${it.bairro}, ${it.cidade} - ${it.estado}"
             telaPonto.putExtra("nome", it.nome)
@@ -69,7 +70,7 @@ class BancosProximosActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<BancoDeSangueEnderecoModel>>, t: Throwable) {
-                TODO("Not yet implemented")
+                binding.tvPontosProximos.text = t.message
             }
         })
     }
