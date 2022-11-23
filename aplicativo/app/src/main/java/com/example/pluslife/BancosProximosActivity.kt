@@ -92,6 +92,7 @@ class BancosProximosActivity : AppCompatActivity() {
     private fun navbar() {
         binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
         binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
+        binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
     }
 
     fun trocarTela(tela: Activity) {

@@ -16,6 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 class PerfilActivity : AppCompatActivity() {
 
@@ -49,7 +50,7 @@ class PerfilActivity : AppCompatActivity() {
         val editor = prefs.edit()
         editor.clear()
         editor.apply()
-        trocarTela(MainActivity())
+        trocarTela(HomeActivity())
     }
 
     private fun excluirConta() {
@@ -95,7 +96,7 @@ class PerfilActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
-        binding.navPontos.setOnClickListener { trocarTela(ComoDoarActivity()) }
+        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
     }
 
     fun trocarTela(tela: Activity){
