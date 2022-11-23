@@ -13,6 +13,7 @@ import com.example.pluslife.models.BancoDeSangueEnderecoModel
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.DoadorResponse
 import com.example.pluslife.models.UsuarioEnderecoRequest
+import com.example.pluslife.models.enum.DadosSharedSecret
 import com.example.pluslife.models.enum.DadosSharedSecret.*
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.Banco
@@ -90,7 +91,15 @@ class BancosProximosActivity : AppCompatActivity() {
     }
 
     private fun navbar() {
-        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
+        binding.navPerfil.setOnClickListener {
+            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+
+            if(isLogado){
+                trocarTela(PerfilActivity())
+            }else {
+                trocarTela(LoginActivity())
+            }
+        }
         binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
     }

@@ -2,11 +2,13 @@ package com.example.pluslife
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityBancoEspecificoBinding
 import com.example.pluslife.databinding.ActivityBuscarEnderecoBinding
 import com.example.pluslife.models.NomeNivelSang
+import com.example.pluslife.models.enum.DadosSharedSecret
 import com.example.pluslife.models.enum.MedidorNivel
 import com.example.pluslife.models.enum.MedidorNivel.ATENCAO
 import com.example.pluslife.models.enum.MedidorNivel.CRITICO
@@ -15,6 +17,7 @@ import com.example.pluslife.models.enum.MedidorNivel.ESTAVEL
 class BancoEspecificoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBancoEspecificoBinding
+    lateinit var prefs: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +46,24 @@ class BancoEspecificoActivity : AppCompatActivity() {
     }
 
     private fun navbar() {
-        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
-        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
+        binding.navPerfil.setOnClickListener {
+            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+
+            if(isLogado){
+                trocarTela(PerfilActivity())
+            }else {
+                trocarTela(LoginActivity())
+            }
+        }
+        binding.navPontos.setOnClickListener {
+            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+
+            if(isLogado){
+                trocarTela(BancosProximosActivity())
+            }else {
+                trocarTela(BuscarEnderecoActivity())
+            }
+        }
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
     }
 

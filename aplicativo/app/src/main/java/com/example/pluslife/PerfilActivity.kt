@@ -9,6 +9,7 @@ import android.text.method.TextKeyListener.clear
 import androidx.core.content.edit
 import com.example.pluslife.databinding.ActivityPerfilBinding
 import com.example.pluslife.models.DoadorModel
+import com.example.pluslife.models.enum.DadosSharedSecret
 import com.example.pluslife.models.enum.DadosSharedSecret.*
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.Usuario
@@ -96,7 +97,16 @@ class PerfilActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
-        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
+
+        binding.navPontos.setOnClickListener {
+            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+
+            if(isLogado){
+                trocarTela(BancosProximosActivity())
+            }else {
+                trocarTela(BuscarEnderecoActivity())
+            }
+        }
     }
 
     fun trocarTela(tela: Activity){

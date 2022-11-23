@@ -329,6 +329,4 @@
             android:src="@drawable/ic_nav_person_red" />
     </LinearLayout>
 
-    <include layout="@layout/toolbar" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
