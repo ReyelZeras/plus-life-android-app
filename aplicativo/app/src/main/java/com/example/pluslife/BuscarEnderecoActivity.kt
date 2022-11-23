@@ -48,7 +48,12 @@ class BuscarEnderecoActivity : AppCompatActivity() {
                 this,
                 BancosProximosActivity::class.java
             )
-            novaTela.putExtra("endereco", endereco)
+            novaTela.putExtra("isNovoEndereco", true)
+            novaTela.putExtra("bairro", bairro)
+            novaTela.putExtra("rua",rua)
+            novaTela.putExtra("numero", numero)
+            novaTela.putExtra("cidade", cidade)
+            novaTela.putExtra("estado", estado)
             startActivity(novaTela)
         }
 

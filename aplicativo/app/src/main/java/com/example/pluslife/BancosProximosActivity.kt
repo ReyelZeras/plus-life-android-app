@@ -78,9 +78,16 @@ class BancosProximosActivity : AppCompatActivity() {
 
 
     private fun montarUsuarioEndereco(): UsuarioEnderecoRequest {
-        val endereco = intent.getSerializableExtra("endereco") as? UsuarioEnderecoRequest
+        val isNovoEndereco = intent.getBooleanExtra("isNovoEndereco", false)
+        val rua = intent.getStringExtra("rua")
+        val cidade = intent.getStringExtra("cidade")
+        val bairro = intent.getStringExtra("bairro")
+        val estado = intent.getStringExtra("estado")
+        val numero = intent.getIntExtra("numero", 0)
 
-        return endereco ?: return UsuarioEnderecoRequest(
+        if (isNovoEndereco) return UsuarioEnderecoRequest("", bairro, rua, numero, cidade, estado)
+
+        return UsuarioEnderecoRequest(
             email = prefs.getString(USUARIO_EMAIL.toString(), ""),
             bairro = prefs.getString(ENDERECO_BAIRRO.toString(), ""),
             rua = prefs.getString(ENDERECO_RUA.toString(), ""),
