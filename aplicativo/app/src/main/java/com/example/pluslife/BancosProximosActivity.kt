@@ -63,17 +63,21 @@ class BancosProximosActivity : AppCompatActivity() {
     private fun tryBuscarPontosProximos(enderecoRequest: UsuarioEnderecoRequest) {
         val request = Rest.getInstance().create(Banco::class.java)
 
-        request.getBancosProximos(enderecoRequest).enqueue(object : Callback<List<BancoDeSangueEnderecoModel>> {
-            override fun onResponse(call: Call<List<BancoDeSangueEnderecoModel>>, response: Response<List<BancoDeSangueEnderecoModel>>) {
-                if (response.code() == 200) {
-                    configurarRecyclerView(response.body().orEmpty())
+        request.getBancosProximos(enderecoRequest)
+            .enqueue(object : Callback<List<BancoDeSangueEnderecoModel>> {
+                override fun onResponse(
+                    call: Call<List<BancoDeSangueEnderecoModel>>,
+                    response: Response<List<BancoDeSangueEnderecoModel>>
+                ) {
+                    if (response.code() == 200) {
+                        configurarRecyclerView(response.body().orEmpty())
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<List<BancoDeSangueEnderecoModel>>, t: Throwable) {
-                binding.tvPontosProximos.text = t.message
-            }
-        })
+                override fun onFailure(call: Call<List<BancoDeSangueEnderecoModel>>, t: Throwable) {
+                    binding.tvPontosProximos.text = t.message
+                }
+            })
     }
 
 
@@ -85,10 +89,12 @@ class BancosProximosActivity : AppCompatActivity() {
         val estado = intent.getStringExtra("estado")
         val numero = intent.getIntExtra("numero", 0)
 
-        if (isNovoEndereco) return UsuarioEnderecoRequest("", bairro, rua, numero, cidade, estado)
+        if (isNovoEndereco) return UsuarioEnderecoRequest(
+            null, bairro, rua, numero, cidade, estado
+        )
 
         return UsuarioEnderecoRequest(
-            email = prefs.getString(USUARIO_EMAIL.toString(), ""),
+            email = prefs.getString(USUARIO_EMAIL.toString(), null),
             bairro = prefs.getString(ENDERECO_BAIRRO.toString(), ""),
             rua = prefs.getString(ENDERECO_RUA.toString(), ""),
             numero = prefs.getInt(ENDERECO_NUMERO.toString(), 0),
@@ -99,11 +105,11 @@ class BancosProximosActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(), false)
 
-            if(isLogado){
+            if (isLogado) {
                 trocarTela(PerfilActivity())
-            }else {
+            } else {
                 trocarTela(LoginActivity())
             }
         }

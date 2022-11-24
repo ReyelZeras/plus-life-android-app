@@ -6,58 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".BancosProximosActivity">
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        >
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/print_map" />
+
+        <TextView
+            android:id="@+id/tv_pontos_proximos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="PONTOS MAIS PRÓXIMOS"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/print_map"/>
+        <View
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:background="@color/pl_red"
+            android:focusable="false" />
 
-            <TextView
-                android:id="@+id/tv_pontos_proximos"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:text="PONTOS MAIS PRÓXIMOS"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="70dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1"
+            tools:listitem="@layout/res_card_item" />
 
-            <View
-                android:layout_marginTop="5dp"
-                android:layout_width="200dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="3dp"
-                android:background="@color/pl_red"
-                android:focusable="false" />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="1"
-                tools:itemCount="10"
-                tools:listitem="@layout/res_card_item" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
+    </LinearLayout>
 
 
     <!-- Nav Bar -->
@@ -65,10 +61,10 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@drawable/edit_text_border"
-        android:gravity="bottom"
         android:backgroundTint="@color/white"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/nav_home"
@@ -94,7 +90,6 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_nav_person_red" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
