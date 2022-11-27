@@ -8,18 +8,14 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.example.pluslife.databinding.ActivityAtualizarEnderecoBinding
-import com.example.pluslife.databinding.ActivityCadastroBinding
 import com.example.pluslife.models.CadastroEnderecoRequest
-import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.UsuarioEnderecoRequest
-import com.example.pluslife.models.enum.DadosSharedSecret.*
+import com.example.pluslife.models.enum.UsuarioSharedSecret.*
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
 import com.example.pluslife.services.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
 
 class AtualizarEnderecoActivity : AppCompatActivity() {
 
@@ -61,11 +57,11 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
     }
 
     private fun montarEnderecoAtual(): String {
-        val rua = prefs.getString(ENDERECO_RUA.toString(), "Rua Haddok Lobo")
-        val numero = prefs.getInt(ENDERECO_NUMERO.toString(), 353)
-        val bairro = prefs.getString(ENDERECO_BAIRRO.toString(), "Consolação")
-        val cidade = prefs.getString(ENDERECO_CIDADE.toString(), "São Paulo")
-        val estado = prefs.getString(ENDERECO_ESTADO.toString(), "SP")
+        val rua = prefs.getString(USUARIO_ENDERECO_RUA.toString(), "Rua Haddok Lobo")
+        val numero = prefs.getInt(USUARIO_ENDERECO_NUMERO.toString(), 353)
+        val bairro = prefs.getString(USUARIO_ENDERECO_BAIRRO.toString(), "Consolação")
+        val cidade = prefs.getString(USUARIO_ENDERECO_CIDADE.toString(), "São Paulo")
+        val estado = prefs.getString(USUARIO_ENDERECO_ESTADO.toString(), "SP")
         return "$rua, $numero, $bairro, $cidade - $estado"
     }
 
@@ -77,11 +73,11 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
         estado: String
     ) {
         val editor = prefs.edit()
-        editor.putString(ENDERECO_BAIRRO.toString(), bairro)
-        editor.putString(ENDERECO_RUA.toString(), rua)
-        editor.putInt(ENDERECO_NUMERO.toString(), numero)
-        editor.putString(ENDERECO_CIDADE.toString(), cidade)
-        editor.putString(ENDERECO_ESTADO.toString(), estado)
+        editor.putString(USUARIO_ENDERECO_BAIRRO.toString(), bairro)
+        editor.putString(USUARIO_ENDERECO_RUA.toString(), rua)
+        editor.putInt(USUARIO_ENDERECO_NUMERO.toString(), numero)
+        editor.putString(USUARIO_ENDERECO_CIDADE.toString(), cidade)
+        editor.putString(USUARIO_ENDERECO_ESTADO.toString(), estado)
         editor.apply()
     }
 

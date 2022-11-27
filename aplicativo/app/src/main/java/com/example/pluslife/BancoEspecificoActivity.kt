@@ -6,10 +6,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityBancoEspecificoBinding
-import com.example.pluslife.databinding.ActivityBuscarEnderecoBinding
 import com.example.pluslife.models.NomeNivelSang
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.EnderecoSharedSecret.*
 import com.example.pluslife.models.enum.MedidorNivel
+import com.example.pluslife.models.enum.UsuarioSharedSecret.*
 import com.example.pluslife.models.enum.MedidorNivel.ATENCAO
 import com.example.pluslife.models.enum.MedidorNivel.CRITICO
 import com.example.pluslife.models.enum.MedidorNivel.ESTAVEL
@@ -29,7 +29,21 @@ class BancoEspecificoActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
 
-        binding.btnVoltar.setOnClickListener { trocarTela(BancosProximosActivity()) }
+        binding.btnVoltar.setOnClickListener {
+            val novaTela = Intent(
+                this,
+                BancosProximosActivity::class.java
+            )
+
+            if (verificarSeEnderecoAtualIgualCadastro()){
+                novaTela.putExtra("isNovoEndereco", false)
+            } else {
+                novaTela.putExtra("isNovoEndereco", true)
+            }
+
+            startActivity(novaTela)
+        }
+
         navbar()
 
         val nome = intent.getStringExtra("nome")
@@ -44,13 +58,25 @@ class BancoEspecificoActivity : AppCompatActivity() {
         binding.tvTelefone.text = telefone
         binding.tvEndereco.text = endereco
         definirEstoque(estoque)
+    }
 
+    // verifica se o usuario esta utilizando o endereco cadastrado ou nao
+    private fun verificarSeEnderecoAtualIgualCadastro(): Boolean {
+        val ruaCadastro = prefs.getString(USUARIO_ENDERECO_RUA.toString(), "")
+        val numeroCadastro = prefs.getInt(USUARIO_ENDERECO_NUMERO.toString(), 0)
+        val ruaAtual = prefs.getString(RUA.toString(), "")
+        val numeroAtual = prefs.getInt(NUMERO.toString(), 0)
 
+        if (ruaCadastro == ruaAtual && numeroCadastro == numeroAtual) {
+            return true
+        }
+
+        return false
     }
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(), false)
+            val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
 
             if (isLogado) {
                 trocarTela(PerfilActivity())
@@ -59,7 +85,7 @@ class BancoEspecificoActivity : AppCompatActivity() {
             }
         }
         binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(), false)
+            val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
 
             if (isLogado) {
                 trocarTela(BancosProximosActivity())
@@ -80,6 +106,7 @@ class BancoEspecificoActivity : AppCompatActivity() {
 
     fun definirEstoque(listaEstoque: ArrayList<NomeNivelSang>) {
         println("VALORES ${listaEstoque.size}")
+        println("ESTQ ${ESTAVEL.nivel}/${CRITICO.nivel}/${ATENCAO.nivel}")
         for (estoque in listaEstoque) {
             when (estoque.nome) {
                 "A+" -> {
@@ -96,7 +123,7 @@ class BancoEspecificoActivity : AppCompatActivity() {
                 }
                 "B+" -> {
                     println("IF IF ${estoque.nivel}/B+")
-                    if (estoque.nivel == ESTAVEL.nivel) binding.medidorBp.setImageResource(R.drawable.medidor_bp_estavel)
+                    if (estoque.nivel.contentEquals(ESTAVEL.nivel)) binding.medidorBp.setImageResource(R.drawable.medidor_bp_estavel)
                     if (estoque.nivel == ATENCAO.nivel) binding.medidorBp.setImageResource(R.drawable.medidor_bp_atencao)
                     if (estoque.nivel == CRITICO.nivel) binding.medidorBp.setImageResource(R.drawable.medidor_bp_critico)
                 }

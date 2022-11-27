@@ -6,8 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityHomeBinding
-import com.example.pluslife.databinding.ActivityLoginBinding
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret
 
 class HomeActivity : AppCompatActivity() {
 
@@ -29,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnPesquisarLugares.setOnClickListener {
 
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(BancosProximosActivity())
@@ -43,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(PerfilActivity())
@@ -52,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(BancosProximosActivity())

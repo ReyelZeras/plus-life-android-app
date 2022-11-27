@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityLoginBinding
 import com.example.pluslife.models.LoginResponse
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_EMAIL
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_ID
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_LOGADO
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_NASCIMENTO
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_NOME
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_TIPO_SANGUINEO
+import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_EMAIL
+import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_ID
+import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_LOGADO
+import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_NOME
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.Usuario
 import retrofit2.Call

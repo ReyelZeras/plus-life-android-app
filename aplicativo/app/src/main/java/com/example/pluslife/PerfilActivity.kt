@@ -5,19 +5,14 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.method.TextKeyListener.clear
-import androidx.core.content.edit
 import com.example.pluslife.databinding.ActivityPerfilBinding
-import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.enum.DadosSharedSecret
-import com.example.pluslife.models.enum.DadosSharedSecret.*
+import com.example.pluslife.models.enum.UsuarioSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret.*
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 class PerfilActivity : AppCompatActivity() {
 
@@ -86,11 +81,11 @@ class PerfilActivity : AppCompatActivity() {
         binding.tvEnderecoAtual.text = montarEnderecoAtual()
     }
     private fun montarEnderecoAtual(): String {
-        val rua = prefs.getString(ENDERECO_RUA.toString(), "Rua Haddok Lobo")
-        val numero = prefs.getInt(ENDERECO_NUMERO.toString(), 353)
-        val bairro = prefs.getString(ENDERECO_BAIRRO.toString(), "Consolação")
-        val cidade = prefs.getString(ENDERECO_CIDADE.toString(), "São Paulo")
-        val estado = prefs.getString(ENDERECO_ESTADO.toString(), "SP")
+        val rua = prefs.getString(USUARIO_ENDERECO_RUA.toString(), "Rua Haddok Lobo")
+        val numero = prefs.getInt(USUARIO_ENDERECO_NUMERO.toString(), 353)
+        val bairro = prefs.getString(USUARIO_ENDERECO_BAIRRO.toString(), "Consolação")
+        val cidade = prefs.getString(USUARIO_ENDERECO_CIDADE.toString(), "São Paulo")
+        val estado = prefs.getString(USUARIO_ENDERECO_ESTADO.toString(), "SP")
         return "$rua, $numero, $bairro, $cidade - $estado"
     }
 
@@ -99,7 +94,7 @@ class PerfilActivity : AppCompatActivity() {
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
 
         binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(BancosProximosActivity())

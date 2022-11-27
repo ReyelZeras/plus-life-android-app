@@ -8,9 +8,9 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.example.pluslife.databinding.ActivityBuscarEnderecoBinding
-import com.example.pluslife.databinding.ActivityHomeBinding
 import com.example.pluslife.models.UsuarioEnderecoRequest
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.EnderecoSharedSecret.*
+import com.example.pluslife.models.enum.UsuarioSharedSecret
 
 class BuscarEnderecoActivity : AppCompatActivity() {
 
@@ -42,18 +42,20 @@ class BuscarEnderecoActivity : AppCompatActivity() {
             val rua = binding.etRua.text.toString()
             val numero = binding.etNumero.text.toString().toInt()
             val bairro = binding.etBairro.text.toString()
-            val endereco  = montarEndereco(bairro, rua, numero, cidade, estado)
 
             val novaTela = Intent(
                 this,
                 BancosProximosActivity::class.java
             )
+            val editor = prefs.edit()
+            editor.putString(RUA.toString(), rua)
+            editor.putString(BAIRRO.toString(), bairro)
+            editor.putString(CIDADE.toString(), cidade)
+            editor.putString(ESTADO.toString(), estado)
+            editor.putInt(NUMERO.toString(), numero)
+            editor.apply()
+
             novaTela.putExtra("isNovoEndereco", true)
-            novaTela.putExtra("bairro", bairro)
-            novaTela.putExtra("rua",rua)
-            novaTela.putExtra("numero", numero)
-            novaTela.putExtra("cidade", cidade)
-            novaTela.putExtra("estado", estado)
             startActivity(novaTela)
         }
 
@@ -63,7 +65,7 @@ class BuscarEnderecoActivity : AppCompatActivity() {
 
     private fun montarEndereco(bairro: String, rua: String, numero: Int, cidade: String, estado: String): UsuarioEnderecoRequest {
         return UsuarioEnderecoRequest(
-            email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
+            email = prefs.getString(UsuarioSharedSecret.USUARIO_EMAIL.toString(), ""),
             bairro = bairro,
             rua = rua,
             numero = numero,
@@ -74,7 +76,7 @@ class BuscarEnderecoActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(PerfilActivity())
@@ -83,7 +85,7 @@ class BuscarEnderecoActivity : AppCompatActivity() {
             }
         }
         binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(BancosProximosActivity())

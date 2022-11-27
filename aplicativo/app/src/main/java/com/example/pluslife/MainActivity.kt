@@ -5,10 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
-import androidx.fragment.app.Fragment
 import com.example.pluslife.databinding.ActivityMainBinding
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_LOGADO
+import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_LOGADO
 
 class MainActivity : AppCompatActivity() {
 

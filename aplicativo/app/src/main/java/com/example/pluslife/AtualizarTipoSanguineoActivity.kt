@@ -7,11 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import com.example.pluslife.databinding.ActivityAtualizarNomeBinding
 import com.example.pluslife.databinding.ActivityAtualizarTipoSanguineoBinding
-import com.example.pluslife.databinding.ActivityCadastroBinding
 import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
 import com.example.pluslife.services.Doador
@@ -57,12 +55,12 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
     }
 
     private fun buscarDados(): DoadorModel {
-        val nascimento = prefs.getString(DadosSharedSecret.USUARIO_NASCIMENTO.toString(), "NULL")
+        val nascimento = prefs.getString(UsuarioSharedSecret.USUARIO_NASCIMENTO.toString(), "NULL")
 
         return DoadorModel(
-            id = prefs.getString(DadosSharedSecret.USUARIO_ID.toString(), ""),
-            nome = prefs.getString(DadosSharedSecret.USUARIO_NOME.toString(), ""),
-            email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
+            id = prefs.getString(UsuarioSharedSecret.USUARIO_ID.toString(), ""),
+            nome = prefs.getString(UsuarioSharedSecret.USUARIO_NOME.toString(), ""),
+            email = prefs.getString(UsuarioSharedSecret.USUARIO_EMAIL.toString(), ""),
             nascimento = if (nascimento != "NULL") LocalDate.parse(nascimento) else null,
             tipoSanguineo = binding.spTipoSanguineo.selectedItem.toString()
         )
@@ -75,7 +73,7 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 binding.tvMensagem.text = "Tipo sanguíneo atualizado com sucesso"
                 val editor = prefs.edit()
-                editor.putString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), binding.spTipoSanguineo.selectedItem.toString())
+                editor.putString(UsuarioSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), binding.spTipoSanguineo.selectedItem.toString())
                 editor.apply()
 
             }

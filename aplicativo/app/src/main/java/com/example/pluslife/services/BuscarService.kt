@@ -1,11 +1,9 @@
 package com.example.pluslife.services
 
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
-import com.example.pluslife.MainActivity
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.DoadorResponse
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret
 import com.example.pluslife.rest.Rest
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,8 +28,8 @@ class BuscarService {
 
 
                 val editor = prefs.edit()
-                editor.putString(DadosSharedSecret.USUARIO_NASCIMENTO.toString(), response.body()?.dataNascimento.toString())
-                editor.putString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), response.body()?.tipoSanguineo.toString())
+                editor.putString(UsuarioSharedSecret.USUARIO_NASCIMENTO.toString(), response.body()?.dataNascimento.toString())
+                editor.putString(UsuarioSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), response.body()?.tipoSanguineo.toString())
                 editor.apply()
             }
 

@@ -1,22 +1,11 @@
 package com.example.pluslife
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.pluslife.databinding.FragmentPerfilBinding
-import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_EMAIL
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_ID
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_LOGADO
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_NASCIMENTO
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_NOME
-import com.example.pluslife.models.enum.DadosSharedSecret.USUARIO_TIPO_SANGUINEO
-import java.time.LocalDate
 
 class PerfilFragment: Fragment() {
 

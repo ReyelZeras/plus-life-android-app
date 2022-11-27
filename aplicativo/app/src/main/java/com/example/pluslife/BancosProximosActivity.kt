@@ -3,21 +3,16 @@ package com.example.pluslife
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pluslife.databinding.ActivityBancosProximosBinding
 import com.example.pluslife.models.BancoDeSangueEnderecoModel
-import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.DoadorResponse
 import com.example.pluslife.models.UsuarioEnderecoRequest
-import com.example.pluslife.models.enum.DadosSharedSecret
-import com.example.pluslife.models.enum.DadosSharedSecret.*
+import com.example.pluslife.models.enum.EnderecoSharedSecret.*
+import com.example.pluslife.models.enum.UsuarioSharedSecret.*
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.Banco
-import com.example.pluslife.services.Doador
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,7 +41,7 @@ class BancosProximosActivity : AppCompatActivity() {
         recyclerContainer.layoutManager = LinearLayoutManager(baseContext)
 
         recyclerContainer.adapter = BancoDeSangueAdapter(pontos!!) {
-            var telaPonto = Intent(
+            val telaPonto = Intent(
                 this,
                 BancoEspecificoActivity::class.java
             )
@@ -83,29 +78,43 @@ class BancosProximosActivity : AppCompatActivity() {
 
     private fun montarUsuarioEndereco(): UsuarioEnderecoRequest {
         val isNovoEndereco = intent.getBooleanExtra("isNovoEndereco", false)
-        val rua = intent.getStringExtra("rua")
-        val cidade = intent.getStringExtra("cidade")
-        val bairro = intent.getStringExtra("bairro")
-        val estado = intent.getStringExtra("estado")
-        val numero = intent.getIntExtra("numero", 0)
 
-        if (isNovoEndereco) return UsuarioEnderecoRequest(
-            null, bairro, rua, numero, cidade, estado
-        )
+        val email = if (isNovoEndereco) null
+            else prefs.getString(USUARIO_EMAIL.toString(), null)
+
+        val rua = if (isNovoEndereco) prefs.getString(RUA.toString(), "")
+            else prefs.getString(USUARIO_ENDERECO_RUA.toString(), "")
+
+        val cidade = if (isNovoEndereco) prefs.getString(CIDADE.toString(), "")
+            else prefs.getString(USUARIO_ENDERECO_CIDADE.toString(), "")
+
+        val bairro = if (isNovoEndereco) prefs.getString(BAIRRO.toString(), "")
+            else prefs.getString(USUARIO_ENDERECO_BAIRRO.toString(), "")
+
+        val estado = if (isNovoEndereco) prefs.getString(ESTADO.toString(), "")
+            else prefs.getString(USUARIO_ENDERECO_ESTADO.toString(), "")
+
+        val numero = if (isNovoEndereco) prefs.getInt(NUMERO.toString(), 0)
+            else prefs.getInt(USUARIO_ENDERECO_NUMERO.toString(), 0)
+
+        if (!isNovoEndereco) {
+            val editor = prefs.edit()
+            editor.putString(RUA.toString(), rua)
+            editor.putString(BAIRRO.toString(), bairro)
+            editor.putString(CIDADE.toString(), cidade)
+            editor.putString(ESTADO.toString(), estado)
+            editor.putInt(NUMERO.toString(), numero)
+            editor.apply()
+        }
 
         return UsuarioEnderecoRequest(
-            email = prefs.getString(USUARIO_EMAIL.toString(), null),
-            bairro = prefs.getString(ENDERECO_BAIRRO.toString(), ""),
-            rua = prefs.getString(ENDERECO_RUA.toString(), ""),
-            numero = prefs.getInt(ENDERECO_NUMERO.toString(), 0),
-            cidade = prefs.getString(ENDERECO_CIDADE.toString(), ""),
-            estado = prefs.getString(ENDERECO_ESTADO.toString(), "")
+            email, bairro, rua, numero, cidade, estado
         )
     }
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(), false)
+            val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
 
             if (isLogado) {
                 trocarTela(PerfilActivity())
@@ -113,7 +122,6 @@ class BancosProximosActivity : AppCompatActivity() {
                 trocarTela(LoginActivity())
             }
         }
-        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
     }
 

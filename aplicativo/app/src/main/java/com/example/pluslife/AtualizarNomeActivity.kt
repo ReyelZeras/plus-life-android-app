@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityAtualizarNomeBinding
 import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
 import com.example.pluslife.services.Doador
@@ -45,14 +45,14 @@ class AtualizarNomeActivity : AppCompatActivity() {
     }
 
     private fun buscarDados(): DoadorModel {
-        val nascimento = prefs.getString(DadosSharedSecret.USUARIO_NASCIMENTO.toString(), "NULL")
+        val nascimento = prefs.getString(UsuarioSharedSecret.USUARIO_NASCIMENTO.toString(), "NULL")
 
         return DoadorModel(
-            id = prefs.getString(DadosSharedSecret.USUARIO_ID.toString(), ""),
+            id = prefs.getString(UsuarioSharedSecret.USUARIO_ID.toString(), ""),
             nome = binding.etNome.text.toString(),
-            email = prefs.getString(DadosSharedSecret.USUARIO_EMAIL.toString(), ""),
+            email = prefs.getString(UsuarioSharedSecret.USUARIO_EMAIL.toString(), ""),
             nascimento = if (nascimento != "NULL") LocalDate.parse(nascimento) else null,
-            tipoSanguineo = prefs.getString(DadosSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")
+            tipoSanguineo = prefs.getString(UsuarioSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")
         )
     }
 
@@ -63,7 +63,7 @@ class AtualizarNomeActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 binding.tvMensagem.text = "Nome atualizado com sucesso"
                 val editor = prefs.edit()
-                editor.putString(DadosSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
+                editor.putString(UsuarioSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
                 editor.apply()
 
             }

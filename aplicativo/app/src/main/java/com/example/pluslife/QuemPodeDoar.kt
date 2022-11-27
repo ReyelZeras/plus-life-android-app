@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityQuemPodeDoarBinding
-import com.example.pluslife.models.enum.DadosSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret
 
 class QuemPodeDoar : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class QuemPodeDoar : AppCompatActivity() {
 
     private fun navbar() {
         binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(PerfilActivity())
@@ -33,7 +33,7 @@ class QuemPodeDoar : AppCompatActivity() {
             }
         }
         binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(DadosSharedSecret.USUARIO_LOGADO.toString(),false)
+            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
 
             if(isLogado){
                 trocarTela(BancosProximosActivity())
