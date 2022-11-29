@@ -32,6 +32,8 @@ class BancosProximosActivity : AppCompatActivity() {
 
         navbar()
 
+        binding.btnEditarEndereco.setOnClickListener { trocarTela(BuscarEnderecoActivity()) }
+
         val endereco = montarUsuarioEndereco()
         tryBuscarPontosProximos(endereco)
     }
