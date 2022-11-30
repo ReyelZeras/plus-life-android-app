@@ -32,10 +32,10 @@ class BancosProximosActivity : AppCompatActivity() {
 
         navbar()
 
-        binding.btnEditarEndereco.setOnClickListener { trocarTela(BuscarEnderecoActivity()) }
-
         val endereco = montarUsuarioEndereco()
         tryBuscarPontosProximos(endereco)
+
+        binding.btnEditarEndereco.setOnClickListener { trocarTela(BuscarEnderecoActivity()) }
     }
 
     private fun configurarRecyclerView(pontos: List<BancoDeSangueEnderecoModel>?) {
@@ -67,6 +67,7 @@ class BancosProximosActivity : AppCompatActivity() {
                     response: Response<List<BancoDeSangueEnderecoModel>>
                 ) {
                     if (response.code() == 200) {
+                        configurarMapa(response.body().orEmpty(), enderecoRequest)
                         configurarRecyclerView(response.body().orEmpty())
                     }
                 }
@@ -77,6 +78,19 @@ class BancosProximosActivity : AppCompatActivity() {
             })
     }
 
+    private fun configurarMapa(pontos: List<BancoDeSangueEnderecoModel>?, usuarioEndereco: UsuarioEnderecoRequest){
+
+        binding.btnMapa.setOnClickListener {
+            val novaTela = Intent(
+                this,
+                MapsActivity::class.java
+            )
+            novaTela.putExtra("pontos", pontos as Serializable)
+            novaTela.putExtra("enderecoUsuario", usuarioEndereco)
+            startActivity(novaTela)
+        }
+
+    }
 
     private fun montarUsuarioEndereco(): UsuarioEnderecoRequest {
         val isNovoEndereco = intent.getBooleanExtra("isNovoEndereco", false)

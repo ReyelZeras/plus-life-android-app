@@ -1,5 +1,7 @@
 package com.example.pluslife.models
 
+import java.io.Serializable
+
 data class BancoDeSangueEnderecoModel(
     val id: Long,
     val latitude: Float,
@@ -14,4 +16,4 @@ data class BancoDeSangueEnderecoModel(
     val emailContato: String,
     val estoque: ArrayList<NomeNivelSang>,
     val distancia: Int
-)
+) : Serializable
