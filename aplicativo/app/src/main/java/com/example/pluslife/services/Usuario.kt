@@ -1,8 +1,6 @@
 package com.example.pluslife.services
 
 import com.example.pluslife.models.*
-import okhttp3.RequestBody
-import pi.pluslife.clients.googleApiClient.response.geocode.GeocodeResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -22,5 +20,5 @@ interface Usuario {
     fun excluir(@Path("id") id: Int): Call<Void>
 
     @POST("/usuario/coordenadas")
-    fun getCoordenadas(@Body body: UsuarioEnderecoRequest): Call<GeocodeResponse>
+    fun coordenadas(@Body body: UsuarioEnderecoRequest): Call<GeocodeResponse>
 }

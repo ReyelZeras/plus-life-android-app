@@ -1,5 +1,5 @@
 package com.example.pluslife.models
 
-class Results {
-    var geometry: Geometry? = null
-}
+data class Results (
+    var geometry: Geometry?
+)
