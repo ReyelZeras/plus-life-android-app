@@ -30,7 +30,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
     private lateinit var pontos: List<BancoDeSangueEnderecoModel>
-    private lateinit var userGeocode: GeocodeResponse
     private lateinit var enderecoUsuario: UsuarioEnderecoRequest
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +40,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         pontos = intent.getSerializableExtra("pontos") as List<BancoDeSangueEnderecoModel>
         enderecoUsuario = intent.getSerializableExtra("enderecoUsuario") as UsuarioEnderecoRequest
-
-        tryUserCoordenates(enderecoUsuario)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -60,22 +57,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
 
-        val lat = userGeocode.results?.get(0)?.geometry?.location?.lat!!
-        val lng = userGeocode.results?.get(0)?.geometry?.location?.lng!!
-        val userCoordenates = LatLng(lat.toDouble(), lng.toDouble())
-        mMap.addMarker(MarkerOptions().position(userCoordenates).title("Sua localização"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(userCoordenates))
+        tryUserCoordenates(enderecoUsuario, googleMap)
 
-        // Add marker for donation points
-        for (ponto in pontos) {
-            val location = LatLng(ponto.latitude.toDouble(), ponto.longitude.toDouble())
-            mMap.addMarker(MarkerOptions().position(location).title(ponto.nome))
-        }
     }
 
-    private fun tryUserCoordenates(enderecoUsuario: UsuarioEnderecoRequest) {
+
+
+    private fun tryUserCoordenates(enderecoUsuario: UsuarioEnderecoRequest, googleMap: GoogleMap) {
         val request = Rest.getInstance().create(Usuario::class.java)
 
         request.coordenadas(enderecoUsuario)
@@ -84,8 +73,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     call: Call<GeocodeResponse>,
                     response: Response<GeocodeResponse>
                 ) {
+                    println("costa rica: ${response.code()}")
                     if (response.code() == 200) {
-                        userGeocode = response.body()!!
+                        configurarMapa(googleMap, response.body()!!)
                     }
                 }
 
@@ -97,5 +87,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
                 }
             })
+    }
+
+    private fun configurarMapa(googleMap: GoogleMap, userGeocode: GeocodeResponse){
+        mMap = googleMap
+        val lat = userGeocode.results?.get(0)?.geometry?.location?.lat!!
+        val lng = userGeocode.results?.get(0)?.geometry?.location?.lng!!
+        val userCoordenates = LatLng(lat.toDouble(), lng.toDouble())
+        mMap.addMarker(MarkerOptions().position(userCoordenates).title("Sua localização"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(userCoordenates))
+
+        // Add marker for donation points
+        for (ponto in pontos) {
+            val location = LatLng(ponto.latitude.toDouble(), ponto.longitude.toDouble())
+            print("location: $location")
+            mMap.addMarker(MarkerOptions().position(location).title(ponto.nome))
+        }
+
     }
 }

@@ -1,7 +1,6 @@
 package com.example.pluslife.services
 
 import androidx.fragment.app.Fragment
-import com.example.pluslife.databinding.FragmentAtualizarNomeBinding
 import com.example.pluslife.models.CadastroEnderecoRequest
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.UsuarioEnderecoRequest
