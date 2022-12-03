@@ -73,7 +73,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     call: Call<GeocodeResponse>,
                     response: Response<GeocodeResponse>
                 ) {
-                    println("costa rica: ${response.code()}")
+                    println("costa rica: ${response.code()} / $enderecoUsuario")
                     if (response.code() == 200) {
                         configurarMapa(googleMap, response.body()!!)
                     }
@@ -95,7 +95,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val lng = userGeocode.results?.get(0)?.geometry?.location?.lng!!
         val userCoordenates = LatLng(lat.toDouble(), lng.toDouble())
         mMap.addMarker(MarkerOptions().position(userCoordenates).title("Sua localização"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(userCoordenates))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userCoordenates, 12.5.toFloat()))
 
         // Add marker for donation points
         for (ponto in pontos) {

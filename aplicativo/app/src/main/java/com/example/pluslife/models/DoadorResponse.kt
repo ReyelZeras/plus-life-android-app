@@ -5,6 +5,6 @@ import java.time.LocalDate
 data class DoadorResponse(
     val nome: String,
     val email: String,
-    val dataNascimento: LocalDate,
+    val dataNascimento: String,
     val tipoSanguineo: String
 )

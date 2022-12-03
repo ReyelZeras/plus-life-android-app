@@ -32,8 +32,9 @@ class AtualizarNomeActivity : AppCompatActivity() {
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
         binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
-
         binding.btnSalvar.setOnClickListener { tryAtualizarDoador(buscarDados()) }
+
+        binding.tvNomeAtual.text = prefs.getString(UsuarioSharedSecret.USUARIO_NOME.toString(), "--")
     }
 
     fun trocarTela(tela: Activity){

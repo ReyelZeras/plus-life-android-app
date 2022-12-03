@@ -53,9 +53,10 @@
         </TextView>
 
             <TextView
+                android:id="@+id/tv_tipo_sang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A+"
+                tools:text="A+"
                 android:layout_marginTop="10dp"
                 >
 

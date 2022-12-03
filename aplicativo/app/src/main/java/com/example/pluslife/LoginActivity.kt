@@ -4,12 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityLoginBinding
-import com.example.pluslife.models.LoginResponse
-import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_EMAIL
-import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_ID
-import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_LOGADO
-import com.example.pluslife.models.enum.UsuarioSharedSecret.USUARIO_NOME
+import com.example.pluslife.models.DoadorResponse
+import com.example.pluslife.models.EnderecoModel
+import com.example.pluslife.models.UsuarioModel
+import com.example.pluslife.models.enum.UsuarioSharedSecret.*
 import com.example.pluslife.rest.Rest
+import com.example.pluslife.services.Doador
 import com.example.pluslife.services.Usuario
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,18 +35,13 @@ class LoginActivity : AppCompatActivity() {
 
         val request = Rest.getInstance().create(Usuario::class.java)
 
-        request.login(email, senha).enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        request.login(email, senha).enqueue(object : Callback<UsuarioModel> {
+            override fun onResponse(call: Call<UsuarioModel>, response: Response<UsuarioModel>) {
                 //binding.tvMensagem.setText(response.body().toString())
 
                 if (response.code() == 200) {
-                    val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
-                    val editor = prefs.edit()
-                    editor.putString(USUARIO_ID.toString(), response.body()?.id.toString())
-                    editor.putString(USUARIO_NOME.toString(), response.body()?.nome.toString())
-                    editor.putString(USUARIO_EMAIL.toString(), response.body()?.email.toString())
-                    editor.putBoolean(USUARIO_LOGADO.toString(), true)
-                    editor.apply()
+                    tryGetEndereco(response.body()!!.id)
+                    tryGetDoador(response.body()!!.id)
                     telaHome()
                 }
 
@@ -55,7 +50,56 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
+                binding.tvMensagem.setText(t.message)
+            }
+        })
+    }
+
+    private fun tryGetEndereco(idUsuario: Int) {
+        val request = Rest.getInstance().create(Usuario::class.java)
+
+        request.getEndereco(idUsuario).enqueue(object : Callback<EnderecoModel> {
+            override fun onResponse(call: Call<EnderecoModel>, response: Response<EnderecoModel>) {
+
+                if (response.code() == 200) {
+                    val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
+                    val editor = prefs.edit()
+                    editor.putString(USUARIO_ENDERECO_RUA.toString(), response.body()?.rua)
+                    editor.putString(USUARIO_ENDERECO_BAIRRO.toString(), response.body()?.bairro)
+                    editor.putString(USUARIO_ENDERECO_CIDADE.toString(), response.body()?.cidade)
+                    editor.putString(USUARIO_ENDERECO_ESTADO.toString(), response.body()?.estado)
+                    editor.putInt(USUARIO_ENDERECO_NUMERO.toString(), response.body()?.numero!!)
+                    editor.putBoolean(USUARIO_LOGADO.toString(), true)
+                    editor.apply()
+                }
+            }
+
+            override fun onFailure(call: Call<EnderecoModel>, t: Throwable) {
+                binding.tvMensagem.setText(t.message)
+            }
+        })
+    }
+
+    private fun tryGetDoador(idUsuario: Int) {
+        val request = Rest.getInstance().create(Doador::class.java)
+
+        request.getDoador(idUsuario.toString()).enqueue(object : Callback<DoadorResponse> {
+            override fun onResponse(call: Call<DoadorResponse>, response: Response<DoadorResponse>) {
+
+                if (response.code() == 200) {
+                    val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
+                    val editor = prefs.edit()
+                    editor.putString(USUARIO_ID.toString(), idUsuario.toString())
+                    editor.putString(USUARIO_NOME.toString(), response.body()?.nome)
+                    editor.putString(USUARIO_EMAIL.toString(), response.body()?.email)
+                    editor.putString(USUARIO_TIPO_SANGUINEO.toString(), response.body()?.tipoSanguineo)
+                    editor.putBoolean(USUARIO_LOGADO.toString(), true)
+                    editor.apply()
+                }
+            }
+
+            override fun onFailure(call: Call<DoadorResponse>, t: Throwable) {
                 binding.tvMensagem.setText(t.message)
             }
         })

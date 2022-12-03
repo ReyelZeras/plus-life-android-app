@@ -1,6 +1,6 @@
 package com.example.pluslife.models
 
-data class LoginResponse(
+data class UsuarioModel(
     val id: Int,
     val nome: String,
     val email: String,

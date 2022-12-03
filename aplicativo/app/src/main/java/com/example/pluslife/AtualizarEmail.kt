@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityAtualizarEmailBinding
 import com.example.pluslife.models.DoadorModel
-import com.example.pluslife.models.enum.UsuarioSharedSecret
+import com.example.pluslife.models.enum.UsuarioSharedSecret.*
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.AtualizarService
 import com.example.pluslife.services.Doador
@@ -20,7 +20,6 @@ class AtualizarEmail : AppCompatActivity() {
 
     lateinit var binding: ActivityAtualizarEmailBinding
     lateinit var prefs: SharedPreferences
-    lateinit var atualizarService: AtualizarService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +29,10 @@ class AtualizarEmail : AppCompatActivity() {
         prefs = getSharedPreferences("DADOS", AppCompatActivity.MODE_PRIVATE)
 
         binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
+        binding.btnSalvar.setOnClickListener { tryAtualizarDoador(buscarDados()) }
 
-        binding.btnSalvar.setOnClickListener {
+        binding.tvEmailAtual.text = prefs.getString(USUARIO_EMAIL.toString(), "--")
 
-            tryAtualizarDoador(buscarDados())
-
-        }
     }
 
     fun trocarTela(tela: Activity){
@@ -47,14 +44,14 @@ class AtualizarEmail : AppCompatActivity() {
     }
 
     private fun buscarDados(): DoadorModel {
-        val nascimento = prefs.getString(UsuarioSharedSecret.USUARIO_NASCIMENTO.toString(), "NULL")
+        val nascimento = prefs.getString(USUARIO_NASCIMENTO.toString(), "NULL")
 
         return DoadorModel(
-            id = prefs.getString(UsuarioSharedSecret.USUARIO_ID.toString(), ""),
-            nome = prefs.getString(UsuarioSharedSecret.USUARIO_NOME.toString(), ""),
+            id = prefs.getString(USUARIO_ID.toString(), ""),
+            nome = prefs.getString(USUARIO_NOME.toString(), ""),
             email = binding.etEmail.text.toString(),
             nascimento = if (nascimento != "NULL") LocalDate.parse(nascimento) else null,
-            tipoSanguineo = prefs.getString(UsuarioSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "")
+            tipoSanguineo = prefs.getString(USUARIO_TIPO_SANGUINEO.toString(), "")
         )
     }
 
@@ -65,7 +62,7 @@ class AtualizarEmail : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 binding.tvMensagem.text = "E-mail atualizado com sucesso"
                 val editor = prefs.edit()
-                editor.putString(UsuarioSharedSecret.USUARIO_EMAIL.toString(), binding.etEmail.text.toString())
+                editor.putString(USUARIO_EMAIL.toString(), binding.etEmail.text.toString())
                 editor.apply()
 
             }

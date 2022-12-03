@@ -6,11 +6,8 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pluslife.databinding.ActivityCadastroBinding
-import com.example.pluslife.databinding.ActivityMainBinding
 import com.example.pluslife.models.CadastroDoadorRequest
 import com.example.pluslife.models.CadastroEnderecoRequest
-import com.example.pluslife.models.LoginRequest
-import com.example.pluslife.models.LoginResponse
 import com.example.pluslife.rest.Rest
 import com.example.pluslife.services.Usuario
 import retrofit2.Call

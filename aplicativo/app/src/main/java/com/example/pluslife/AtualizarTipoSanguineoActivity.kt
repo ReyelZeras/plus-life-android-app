@@ -35,6 +35,8 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
         binding.btnVoltar.setOnClickListener { trocarTela(PerfilActivity()) }
         binding.btnSalvar.setOnClickListener { tryAtualizarDoador(buscarDados()) }
 
+        binding.tvTipoSang.text = prefs.getString(UsuarioSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), "--")
+
         val spinner: Spinner = binding.spTipoSanguineo
         ArrayAdapter.createFromResource(
             this,

@@ -8,7 +8,7 @@ import retrofit2.http.*
 interface Usuario {
 
     @POST("/usuario/login")
-    fun login(@Query("email") email: String, @Query("senha") senha: String): Call<LoginResponse>
+    fun login(@Query("email") email: String, @Query("senha") senha: String): Call<UsuarioModel>
 
     @POST("/usuario/doador")
     fun cadastroDoador(@Body body: CadastroDoadorRequest): Call<Void>
@@ -21,4 +21,7 @@ interface Usuario {
 
     @POST("/usuario/coordenadas")
     fun coordenadas(@Body body: UsuarioEnderecoRequest): Call<GeocodeResponse>
+
+    @GET("usuario/endereco/{id}")
+    fun getEndereco(@Path("id") id: Int): Call<EnderecoModel>
 }
