@@ -188,7 +188,7 @@
             android:layout_marginRight="10dp"
             />
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/et_nascimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,6 +197,10 @@
             android:background="@drawable/edit_text_border"
             android:padding="5dp"
             android:layout_marginLeft="10dp"
+            android:inputType="number"
+            app:mask="__/__/____"
+            app:maskCharacter="_"
+            app:maskStyle="completable"
 
 
             />

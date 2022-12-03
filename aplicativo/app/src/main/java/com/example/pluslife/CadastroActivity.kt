@@ -55,7 +55,22 @@ class CadastroActivity : AppCompatActivity() {
         val email = binding.etEmail.text.toString()
         val senha = binding.etSenha.text.toString()
         val tipoSanguineo = binding.tipoSanguineo.selectedItem.toString()
-        val nascimento = binding.etNascimento.text.toString()
+        // val nascimento = binding.etNascimento.text.toString()
+
+        val nascimentoCru = binding.etNascimento.unMasked.toString()
+
+        var nascimento=""
+
+        for (i in 1..4){
+            nascimento+=nascimentoCru.get(i+3)
+        }
+        nascimento+="-"
+        nascimento+=nascimentoCru.get(2)
+        nascimento+=nascimentoCru.get(3)
+        nascimento+="-"
+        nascimento+=nascimentoCru.get(0)
+        nascimento+=nascimentoCru.get(1)
+
 
         val body = CadastroDoadorRequest( nome, email, senha, nascimento, tipoSanguineo)
 
