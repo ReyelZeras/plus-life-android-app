@@ -62,7 +62,7 @@ class AtualizarNomeActivity : AppCompatActivity() {
         val request = Rest.getInstance().create(Doador::class.java)
         request.atualizar(doador).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                binding.tvMensagem.text = "Nome atualizado com sucesso"
+                trocarTela(SucessoActivity())
                 val editor = prefs.edit()
                 editor.putString(UsuarioSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
                 editor.apply()
@@ -70,7 +70,7 @@ class AtualizarNomeActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu nome"
+                trocarTela(ErroActivity())
             }
         })
     }

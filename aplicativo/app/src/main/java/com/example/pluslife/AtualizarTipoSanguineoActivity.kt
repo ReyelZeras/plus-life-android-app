@@ -73,7 +73,7 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
         val request = Rest.getInstance().create(Doador::class.java)
         request.atualizar(doador).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                binding.tvMensagem.text = "Tipo sanguíneo atualizado com sucesso"
+                trocarTela(SucessoActivity())
                 val editor = prefs.edit()
                 editor.putString(UsuarioSharedSecret.USUARIO_TIPO_SANGUINEO.toString(), binding.spTipoSanguineo.selectedItem.toString())
                 editor.apply()
@@ -81,7 +81,7 @@ class AtualizarTipoSanguineoActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu tipo sanguíneo"
+                trocarTela(ErroActivity())
             }
         })
     }

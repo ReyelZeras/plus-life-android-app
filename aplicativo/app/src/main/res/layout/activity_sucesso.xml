@@ -4,34 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaErro">
-
+    tools:context=".SucessoActivity"
+    >
+    <ImageButton
+        android:id="@+id/btn_sair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fechar"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
+        android:backgroundTint="@color/pl_light_green"
         >
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="Erro!"
-            android:textColor="@color/pl_dark_red"
-            android:textSize="28dp"
-            android:textStyle="bold" />
-
         <ImageView
-            android:id="@+id/checkzim"
-
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@drawable/circulo_erro" />
+            android:src="@drawable/check_verde" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

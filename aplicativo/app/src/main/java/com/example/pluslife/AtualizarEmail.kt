@@ -60,16 +60,21 @@ class AtualizarEmail : AppCompatActivity() {
         val request = Rest.getInstance().create(Doador::class.java)
         request.atualizar(doador).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                binding.tvMensagem.text = "E-mail atualizado com sucesso"
+//                binding.tvMensagem.text = "E-mail atualizado com sucesso"
                 val editor = prefs.edit()
                 editor.putString(USUARIO_EMAIL.toString(), binding.etEmail.text.toString())
                 editor.apply()
+                trocarTela(SucessoActivity())
+
 
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu e-mail"
+//                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu e-mail"
+                trocarTela(ErroActivity())
             }
         })
     }
+
+
 }

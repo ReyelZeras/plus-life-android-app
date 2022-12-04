@@ -111,7 +111,7 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
         request.cadastroEndereco(enderecoRequest).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.code() == 201){
-                    binding.tvMensagem.text = "Endereço atualizado com sucesso"
+                    trocarTela(SucessoActivity())
                     atualizarSharedPreferences(
                         enderecoRequest.bairro,
                         enderecoRequest.rua,
@@ -125,7 +125,7 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu endereço"
+                trocarTela(ErroActivity())
             }
         })
     }
