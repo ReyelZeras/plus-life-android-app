@@ -40,7 +40,7 @@
             android:textColor="@color/pl_light_gray"
             android:textStyle="bold"
             android:textAlignment="textEnd"
-            android:textSize="20dp"/>
+            android:textSize="18dp"/>
 
 
     </LinearLayout>
@@ -50,6 +50,7 @@
             android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_publicacao"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="8dp"
@@ -67,6 +68,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/btn_excluir_publicacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

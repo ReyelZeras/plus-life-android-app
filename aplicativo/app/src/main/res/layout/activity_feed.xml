@@ -18,6 +18,7 @@
         android:layout_margin="10dp">
 
         <EditText
+            android:id="@+id/et_publicacao"
             android:layout_width="400dp"
             android:layout_height="100dp"
             android:padding="5dp"
@@ -28,6 +29,7 @@
             />
 
         <Button
+            android:id="@+id/btn_postar"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
