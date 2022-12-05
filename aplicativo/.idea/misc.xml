@@ -12,6 +12,7 @@
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/Aplicativo/plus-life-android-app/aplicativo/app/src/main/res/layout/res_card_item.xml" value="0.2384428223844282" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/drawable/button_border.xml" value="0.1" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/drawable/edit_text_border.xml" value="0.1675" />
+        <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/drawable/text_view_border.xml" value="0.176" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.1" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.1" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_atualizar_email.xml" value="0.25" />
@@ -25,6 +26,7 @@
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_cadastro.xml" value="0.22" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_como_doar.xml" value="0.18" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_erro.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_feed.xml" value="0.22" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -51,7 +53,10 @@
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/navbar.xml" value="0.203125" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/navbar2.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/res_card_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/res_card_item_feed.xml" value="0.25" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/layout/toolbar.xml" value="0.18" />
+        <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/menu/menu_como_doar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/aplicativo/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/app/src/main/res/drawable/button_border.xml" value="0.1675" />
         <entry key="..\:/Users/Reyel Soares/Downloads/Bandtec/Quarto Semestre/Pesquisa e Inovacao/Android/plus-life-android-app/app/src/main/res/drawable/edit_text_border.xml" value="0.1675" />
