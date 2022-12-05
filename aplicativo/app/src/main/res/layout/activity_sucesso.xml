@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SucessoActivity"
     >
-    <ImageButton
+    <ImageView
         android:id="@+id/btn_sair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

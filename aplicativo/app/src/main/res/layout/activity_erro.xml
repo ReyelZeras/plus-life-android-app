@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ErroActivity">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/btn_sair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/fechar"
+        android:src="@drawable/ic__close_red"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
