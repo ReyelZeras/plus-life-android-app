@@ -62,7 +62,7 @@ class AtualizarNomeActivity : AppCompatActivity() {
         val request = Rest.getInstance().create(Doador::class.java)
         request.atualizar(doador).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                trocarTela(SucessoActivity())
+                telaSucesso()
                 val editor = prefs.edit()
                 editor.putString(UsuarioSharedSecret.USUARIO_NOME.toString(), binding.etNome.text.toString())
                 editor.apply()
@@ -70,8 +70,28 @@ class AtualizarNomeActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                trocarTela(ErroActivity())
+                telaErro("Ocorreu um erro ao atualizar seu nome")
             }
         })
     }
+
+    fun telaErro(mensagem: String){
+        val novaTela = Intent(
+            this,
+            ErroActivity::class.java
+        )
+        novaTela.putExtra("tela", "PERFIL")
+        novaTela.putExtra("mensagem", mensagem)
+        startActivity(novaTela)
+    }
+
+    fun telaSucesso(){
+        val novaTela = Intent(
+            this,
+            SucessoActivity::class.java
+        )
+        novaTela.putExtra("tela", "PERFIL")
+        startActivity(novaTela)
+    }
+
 }

@@ -6,30 +6,38 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pluslife.databinding.ActivityBancosProximosBinding
+import com.example.pluslife.databinding.ActivityErroBinding
+import com.example.pluslife.databinding.ActivitySucessoBinding
 
 class SucessoActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityBancosProximosBinding
-    lateinit var prefs: SharedPreferences
+    lateinit var binding: ActivitySucessoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityBancosProximosBinding.inflate(layoutInflater)
+        super.onCreate(savedInstanceState)
+        binding = ActivitySucessoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
-
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sucesso)
+        val novaTela = intent.getStringExtra("tela")
+        binding.btnSair.setOnClickListener{trocarTela(novaTela!!)}
     }
 
 
 
-    fun trocarTela(tela: Activity) {
-        val novaTela = Intent(
-            this,
-            tela::class.java
+    fun trocarTela(novaTela: String){
+        val activity: Activity
+        when (novaTela) {
+            "PERFIL" -> activity = PerfilActivity()
+            "BANCOS_PROXIMOS" -> activity = BancosProximosActivity()
+            else -> activity = HomeActivity()
+        }
+
+        startActivity(
+            Intent(
+                this,
+                activity::class.java
+            )
         )
-        startActivity(novaTela)
     }
 
 

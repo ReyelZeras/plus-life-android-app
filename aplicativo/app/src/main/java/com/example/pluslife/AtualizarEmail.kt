@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import com.example.pluslife.databinding.ActivityAtualizarEmailBinding
 import com.example.pluslife.models.DoadorModel
 import com.example.pluslife.models.enum.UsuarioSharedSecret.*
@@ -64,16 +65,35 @@ class AtualizarEmail : AppCompatActivity() {
                 val editor = prefs.edit()
                 editor.putString(USUARIO_EMAIL.toString(), binding.etEmail.text.toString())
                 editor.apply()
-                trocarTela(SucessoActivity())
+                telaSucesso()
 
 
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
 //                binding.tvMensagem.text = "Ocorreu um erro ao atualizar seu e-mail"
-                trocarTela(ErroActivity())
+                telaErro("Ocorreu um erro ao atualizar seu e-mail")
             }
         })
+    }
+
+    fun telaErro(mensagem: String){
+        val novaTela = Intent(
+            this,
+            ErroActivity::class.java
+        )
+        novaTela.putExtra("tela", "PERFIL")
+        novaTela.putExtra("mensagem", mensagem)
+        startActivity(novaTela)
+    }
+
+    fun telaSucesso(){
+        val novaTela = Intent(
+            this,
+            SucessoActivity::class.java
+        )
+        novaTela.putExtra("tela", "PERFIL")
+        startActivity(novaTela)
     }
 
 

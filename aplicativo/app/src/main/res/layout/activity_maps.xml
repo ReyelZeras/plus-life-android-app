@@ -9,6 +9,13 @@
 
     <include android:id="@+id/toolbar" layout="@layout/toolbar" />
 
+    <ImageView
+        android:layout_margin="20dp"
+        android:id="@+id/btn_voltar"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_back_red" />
+
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         map:layout_constraintTop_toBottomOf="@id/toolbar"
         xmlns:map="http://schemas.android.com/apk/res-auto"

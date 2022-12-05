@@ -73,7 +73,7 @@ class BancosProximosActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<List<BancoDeSangueEnderecoModel>>, t: Throwable) {
-                    binding.tvPontosProximos.text = t.message
+                    telaErro(t.message.toString())
                 }
             })
     }
@@ -148,6 +148,17 @@ class BancosProximosActivity : AppCompatActivity() {
         )
         startActivity(novaTela)
     }
+
+    fun telaErro(mensagem: String){
+        val novaTela = Intent(
+            this,
+            ErroActivity::class.java
+        )
+        novaTela.putExtra("tela", "HOME")
+        novaTela.putExtra("mensagem", mensagem)
+        startActivity(novaTela)
+    }
+
 }
 
 

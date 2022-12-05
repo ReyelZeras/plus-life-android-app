@@ -1,6 +1,7 @@
 package com.example.pluslife
 
 import android.content.Context
+import android.content.Intent
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -80,11 +81,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
 
                 override fun onFailure(call: Call<GeocodeResponse>, t: Throwable) {
-                    println(
-                        "--------- \n ---------- \n " +
-                        "erro na requisição de coordenadas do usuario " +
-                        "\n -------- \n ---------"
-                    )
+                    telaErro(t.message.toString())
+
                 }
             })
     }
@@ -105,4 +103,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
+
+    fun telaErro(mensagem: String){
+        val novaTela = Intent(
+            this,
+            ErroActivity::class.java
+        )
+        novaTela.putExtra("tela", "BANCOS_PROXIMOS")
+        novaTela.putExtra("mensagem", mensagem)
+        startActivity(novaTela)
+    }
+
+
 }

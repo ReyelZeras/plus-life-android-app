@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="200dp"
@@ -43,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Rua Tauí, 354 - Jardim Paulista, São Paulo - SP"
+                tools:text="Rua Tauí, 354 - Jardim Paulista, São Paulo - SP"
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 
@@ -65,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="11 2459-8735"
+                tools:text="11 2459-8735"
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 
@@ -87,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="hospitalpluslife@gmail.com"
+                tools:text="hospitalpluslife@gmail.com"
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 

@@ -111,7 +111,7 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
         request.cadastroEndereco(enderecoRequest).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.code() == 201){
-                    trocarTela(SucessoActivity())
+                    telaSucesso()
                     atualizarSharedPreferences(
                         enderecoRequest.bairro,
                         enderecoRequest.rua,
@@ -120,13 +120,32 @@ class AtualizarEnderecoActivity : AppCompatActivity() {
                         enderecoRequest.estado
                     )
                 }else {
-                    binding.tvMensagem.text = "Caio hideki ${response}"
+                    binding.tvMensagem.text = "${response}"
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                trocarTela(ErroActivity())
+                telaErro("Ocorreu um erro ao atualizar seu endereço")
             }
         })
+    }
+
+    fun telaErro(mensagem: String){
+        val novaTela = Intent(
+            this,
+            ErroActivity::class.java
+        )
+        novaTela.putExtra("tela", "PERFIL")
+        novaTela.putExtra("mensagem", mensagem)
+        startActivity(novaTela)
+    }
+
+    fun telaSucesso(){
+        val novaTela = Intent(
+            this,
+            SucessoActivity::class.java
+        )
+        novaTela.putExtra("tela", "PERFIL")
+        startActivity(novaTela)
     }
 }
