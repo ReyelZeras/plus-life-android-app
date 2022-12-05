@@ -30,6 +30,11 @@ class BancosProximosActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
 
+        val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
+        if (!isLogado) {
+            trocarTela(BuscarEnderecoActivity())
+        }
+
         navbar()
 
         val endereco = montarUsuarioEndereco()
@@ -129,17 +134,10 @@ class BancosProximosActivity : AppCompatActivity() {
     }
 
     private fun navbar() {
-        binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
-
-            if (isLogado) {
-                trocarTela(PerfilActivity())
-            } else {
-                trocarTela(LoginActivity())
-            }
-        }
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
+        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
     }
+
 
     fun trocarTela(tela: Activity) {
         val novaTela = Intent(

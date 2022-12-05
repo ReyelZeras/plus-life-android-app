@@ -19,9 +19,9 @@
 
         <EditText
             android:id="@+id/et_publicacao"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:padding="10dp"
             android:hint="Escreva sua publicação..."
             android:textColorHint="@color/pl_light_gray"
             android:textStyle="bold"
@@ -32,7 +32,7 @@
             android:id="@+id/btn_postar"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_border"
             android:text="Postar"
             android:textColor="@color/pl_white"
@@ -48,7 +48,8 @@
             android:layout_marginBottom="70dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="1"
-            tools:listitem="@layout/res_card_item_feed" />
+            tools:listitem="@layout/res_card_item_feed"
+            android:paddingBottom="70dp"/>
 
 
     </LinearLayout>

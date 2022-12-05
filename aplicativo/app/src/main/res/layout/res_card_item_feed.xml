@@ -32,7 +32,7 @@
             android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/tv_data_hota"
+            android:id="@+id/tv_data_hora"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -62,9 +62,9 @@
             Todos os dias da semana."
             android:textAlignment="textStart"
             android:autoSizeTextType="uniform"
-            android:textColor="@color/black"
-            android:background="@drawable/text_view_border"
-            />
+            android:textSize="20dp"
+            android:textColor="@color/black" />
+        <!--android:background="@drawable/text_view_border"-->
         </LinearLayout>
 
         <ImageView

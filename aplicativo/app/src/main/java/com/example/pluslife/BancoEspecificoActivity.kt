@@ -75,26 +75,11 @@ class BancoEspecificoActivity : AppCompatActivity() {
     }
 
     private fun navbar() {
-        binding.navPerfil.setOnClickListener {
-            val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
-
-            if (isLogado) {
-                trocarTela(PerfilActivity())
-            } else {
-                trocarTela(LoginActivity())
-            }
-        }
-        binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(), false)
-
-            if (isLogado) {
-                trocarTela(BancosProximosActivity())
-            } else {
-                trocarTela(BuscarEnderecoActivity())
-            }
-        }
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
+        binding.navPerfil.setOnClickListener { trocarTela(PerfilActivity()) }
+        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
     }
+
 
     fun trocarTela(tela: Activity) {
         val novaTela = Intent(

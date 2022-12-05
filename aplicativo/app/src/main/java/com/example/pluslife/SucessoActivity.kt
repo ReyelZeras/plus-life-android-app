@@ -29,6 +29,7 @@ class SucessoActivity : AppCompatActivity() {
         when (novaTela) {
             "PERFIL" -> activity = PerfilActivity()
             "BANCOS_PROXIMOS" -> activity = BancosProximosActivity()
+            "FEED" -> activity = FeedActivity()
             else -> activity = HomeActivity()
         }
 

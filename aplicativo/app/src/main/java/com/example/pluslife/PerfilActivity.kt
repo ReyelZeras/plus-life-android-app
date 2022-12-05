@@ -27,6 +27,9 @@ class PerfilActivity : AppCompatActivity() {
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val isLogado = prefs.getBoolean(USUARIO_LOGADO.toString(),false)
+        if(!isLogado){ trocarTela(LoginActivity()) }
+
         val nomeDoador = prefs.getString(USUARIO_NOME.toString(), "doador")
         binding.titulo.text = "Olá, $nomeDoador"
 
@@ -92,16 +95,7 @@ class PerfilActivity : AppCompatActivity() {
 
     private fun navbar() {
         binding.navHome.setOnClickListener { trocarTela(HomeActivity()) }
-
-        binding.navPontos.setOnClickListener {
-            val isLogado = prefs.getBoolean(UsuarioSharedSecret.USUARIO_LOGADO.toString(),false)
-
-            if(isLogado){
-                trocarTela(BancosProximosActivity())
-            }else {
-                trocarTela(BuscarEnderecoActivity())
-            }
-        }
+        binding.navPontos.setOnClickListener { trocarTela(BancosProximosActivity()) }
     }
 
     fun trocarTela(tela: Activity){

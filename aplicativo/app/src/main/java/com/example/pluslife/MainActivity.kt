@@ -20,19 +20,8 @@ class MainActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("DADOS", MODE_PRIVATE)
 
         varificaLogin(prefs)
-//        navbar()
-//
-//        val transaction = supportFragmentManager.beginTransaction()
-//        transaction.replace(binding.fragmentToolbar.id, ToolbarFragment())
-//        transaction.commit()
 
     }
-
-//    private fun navbar() {
-//        binding.navHome.setOnClickListener { trocarTela(HomeFragment()) }
-//        binding.navPerfil.setOnClickListener { trocarTela(PerfilFragment()) }
-//        binding.navPontos.setOnClickListener { trocarTela(ComoDoarFragment()) }
-//    }
 
     private fun varificaLogin(prefs: SharedPreferences) {
         if (prefs.getBoolean(USUARIO_LOGADO.toString(), false)) {
@@ -42,12 +31,6 @@ class MainActivity : AppCompatActivity() {
             trocarTela(LoginActivity())
         }
     }
-
-//    fun trocarTela(tela: Fragment){
-//        val transaction = supportFragmentManager.beginTransaction()
-//        transaction.replace(binding.fragmentTela.id, tela)
-//        transaction.commit()
-//    }
 
     fun trocarTela(tela: Activity) {
         val novaTela = Intent(
