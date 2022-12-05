@@ -45,7 +45,7 @@ class PostagemAdapter(
             val data = dataHora.toLocalDate().toString()
             val hora = "${dataHora.hour}:${dataHora.minute}"
 
-            tvDataHora.text = "$data  -  ${hora}"
+            tvDataHora.text = "$data  -  $hora"
             tvDescricao.text = postagem.descricao
 
             if (idUsuario.toInt() == postagem.usuarioEntity.id) {
